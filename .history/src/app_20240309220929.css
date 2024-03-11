@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --tagColor: hsla(276, 84%, 68%, 0.93);
+    --tagTextColor: #fff;
+    --tagBorderColor: #25051a;
+}

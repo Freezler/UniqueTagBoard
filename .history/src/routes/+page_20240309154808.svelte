@@ -1,0 +1,35 @@
+<script>
+  import autoAnimate from '@formkit/auto-animate';
+  let tags = ['Svelte', 'SvelteKit', 'TailwindCSS', 'AutoAnimate'];
+  function addItem(e) {
+    if (e.which === 13) {
+      tags.push(e.target.value);
+      tags = tags;
+      e.target.value = '';
+    }
+  }
+  function remove(target) {
+    tags = tags.filter((tag) => target !== tag);
+  }
+</script>
+
+<h1>Welcome to SvelteKit</h1>
+<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<label for="add-tag-input" class="tag-input">
+  <ul use:autoAnimate> <!-- 👀 thats it folks! -->
+    {#each tags as tag (tag)}
+      <li class="tag">
+        <span>{tag}</span>
+        <span  on:keydown={(e) => e.key === 'Enter'}  on:click={() => remove(tag)}>x</span>
+      </li>
+    {/each}
+    <li>
+      <input
+        id="add-tag-input"
+        type="text"
+        placeholder="Add a tag..."
+        on:keydown={addItem}
+      />
+    </li>
+  </ul>
+</label>
