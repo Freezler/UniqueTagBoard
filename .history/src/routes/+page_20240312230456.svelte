@@ -101,12 +101,12 @@
 		class="grid place-items-center grid-cols-1 grid-rows-1 pb-2 bg-slate-900 text-center text-amber-50"
 	>
 		<h1
-			class="text-3xl font-semibold p-2 uppercase text-[hsla(187,45%,84%,1)]  text-center mb-1"
+			class="text-3xl font-semibold p-2 uppercase text-amber-50  text-center mb-4"
 		>
 			Unique Tag Board
 		</h1>
 		<p
-			class="text-[16px] text-[hsla(187,45%,74%,1)] font-normal w-[32ch] text-pretty text-center mb-4"
+			class="text-[16px] text-amber-50 font-normal w-[32ch] text-pretty text-center mb-4"
 		>
 			A project built with <a href="https://kit.svelte.dev"
 				>Svelte Kit</a

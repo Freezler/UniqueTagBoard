@@ -101,12 +101,12 @@
 		class="grid place-items-center grid-cols-1 grid-rows-1 pb-2 bg-slate-900 text-center text-amber-50"
 	>
 		<h1
-			class="text-3xl font-semibold p-2 uppercase text-[hsla(187,45%,84%,1)]  text-center mb-1"
+			class="text-3xl font-semibold p-2 uppercase text-amber-50"
 		>
 			Unique Tag Board
 		</h1>
 		<p
-			class="text-[16px] text-[hsla(187,45%,74%,1)] font-normal w-[32ch] text-pretty text-center mb-4"
+			class="text-[16px] text-amber-50 font-normal w-[32ch] text-pretty text-center mb-4"
 		>
 			A project built with <a href="https://kit.svelte.dev"
 				>Svelte Kit</a
@@ -127,7 +127,7 @@
 					duration: 600,
 					easing: 'ease-in-out'
 				}}
-				class="overflow-scroll scroll-pe-44 flex flex-row flex-wrap items-center justify-center w-[85vw] bg-pink-950/5 gap-2 h-[48vh] p-8"
+				class="overflow-scroll scroll-pe-1.5 flex flex-row flex-wrap items-center justify-center w-[85vw] bg-pink-950/5 gap-2 h-[48vh]  p-8"
 			>
 				{#each tags as tag, index (tag)}
 					<li
@@ -211,14 +211,5 @@
 		padding: 0.5rem;
 		background-color: var(--bg-color);
 		box-shadow: 0 4rem 1rem 5rem var(--bg-color);
-	}
-
-	ul::-webkit-scrollbar {
-		width: 1px;
-		height: 0px;
-	}
-
-	ul::-webkit-scrollbar-thumb {
-		background-color: hsla(268, 95%, 42%, 0.332);
 	}
 </style>

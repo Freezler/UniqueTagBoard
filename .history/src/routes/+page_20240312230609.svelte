@@ -101,7 +101,7 @@
 		class="grid place-items-center grid-cols-1 grid-rows-1 pb-2 bg-slate-900 text-center text-amber-50"
 	>
 		<h1
-			class="text-3xl font-semibold p-2 uppercase text-[hsla(187,45%,84%,1)]  text-center mb-1"
+			class="text-3xl font-semibold p-2 uppercase text-[hsla(187,45%,84%,1)]  text-center mb-2"
 		>
 			Unique Tag Board
 		</h1>
