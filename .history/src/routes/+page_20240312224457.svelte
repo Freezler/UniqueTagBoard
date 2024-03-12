@@ -108,18 +108,13 @@
 		<p
 			class="text-[16px] text-amber-50 font-normal w-[32ch] text-pretty text-center mb-4"
 		>
-			A project built with <a href="https://kit.svelte.dev"
-				>Svelte Kit</a
-			>,
-			<a href="https://tailwindcss.com">TailwindCSS </a>and
-			<a href="https://auto-animate.formkit.com/"
-				>Auto-animate.</a
-			> allowing users to dynamically add and remove tags with
-			visual animations while efficiently using available space.
+			A project built with <a href="https://kit.svelte.dev">Svelte Kit</a>, <a href="https://tailwindcss.com">TailwindCSS </a>and
+			Auto-animate. allowing users to dynamically add and
+			remove tags with visual animations while efficiently using available space.
 		</p>
 	</div>
 	<section
-		class="smooth-scroll bg-slate-900 flex flex-col m-0 mt-0 w-[100vw] h-[100v%]"
+		class="smooth-scroll bg-slate-900 flex flex-col m-0 mt-0 w-[100vw] h-[100v%] "
 	>
 		<label for="add-tag-input" class="tag-input">
 			<ul

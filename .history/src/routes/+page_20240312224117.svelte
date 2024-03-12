@@ -101,25 +101,20 @@
 		class="grid place-items-center grid-cols-1 grid-rows-1 pb-2 bg-slate-900 text-center text-amber-50"
 	>
 		<h1
-			class="text-3xl font-semibold p-2 uppercase text-amber-50"
+			class="text-3xl font-semibold p-4 uppercase text-amber-50"
 		>
 			Unique Tag Board
 		</h1>
 		<p
-			class="text-[16px] text-amber-50 font-normal w-[32ch] text-pretty text-center mb-4"
+			class="text-[16px] text-amber-50 font-normal w-[35ch] text-pretty text-center mb-4"
 		>
-			A project built with <a href="https://kit.svelte.dev"
-				>Svelte Kit</a
-			>,
-			<a href="https://tailwindcss.com">TailwindCSS </a>and
-			<a href="https://auto-animate.formkit.com/"
-				>Auto-animate.</a
-			> allowing users to dynamically add and remove tags with
-			visual animations while efficiently using available space.
+			A project built with Svelte Kit, TailwindCSS, and
+			Auto-animate, allowing users to dynamically add and
+			remove tags with visual animations.
 		</p>
 	</div>
 	<section
-		class="smooth-scroll bg-slate-900 flex flex-col m-0 mt-0 w-[100vw] h-[100v%]"
+		class="smooth-scroll bg-slate-900 flex flex-col m-0 mt-0 w-[100vw] h-[100v%] "
 	>
 		<label for="add-tag-input" class="tag-input">
 			<ul

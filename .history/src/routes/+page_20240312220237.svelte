@@ -3,37 +3,19 @@
 
 	//   Define an array of tags
 	let tags = [
-		'AutoAnimate',
-		'AWS',
-		'C',
-		'C#',
-		'cobolt',
-		'ESLint',
-		'Figma',
-		'Fortran',
-		'GitHub',
-		'Java',
-		'MongoDB',
-		'Mongoose',
-		'mySql',
-		'Netlify',
-		'NodeJS',
-		'NPM',
-		'Nuxt',
-		'PHP',
-		'Postgress',
-		'Prettier',
-		'Python',
-		'randy',
-		'React',
-		'React Native',
 		'Svelte',
 		'SvelteKit',
-		'SyntaxFM',
 		'TailwindCSS',
-		'Vercel',
+		'Netlify',
+		'Prettier',
+		'ESLint',
+		'Vite',
 		'VSCode',
-		'Vue3'
+		'GitHub',
+		'NPM',
+		'Vercel',
+		'Figma',
+		'AutoAnimate'
 	];
 
 	onMount(() => {
@@ -96,38 +78,33 @@
 	}
 </script>
 
-<body class="grid bg-slate-950 h-[100vh] scroll-smooth">
+<body class="grid bg-slate-950 h-[100vh]">
 	<div
 		class="grid place-items-center grid-cols-1 grid-rows-1 pb-2 bg-slate-900 text-center text-amber-50"
 	>
 		<h1
-			class="text-3xl font-semibold p-2 uppercase text-amber-50"
+			class="text-3xl font-semibold pb-2 uppercase text-amber-50"
 		>
 			Unique Tag Board
 		</h1>
 		<p
-			class="text-[16px] text-amber-50 font-normal w-[32ch] text-pretty text-center mb-4"
+			class="text-[16px] text-amber-50 font-normal w-[35ch] text-pretty text-center scroll-pb-48"
 		>
-			A project built with <a href="https://kit.svelte.dev"
-				>Svelte Kit</a
-			>,
-			<a href="https://tailwindcss.com">TailwindCSS </a>and
-			<a href="https://auto-animate.formkit.com/"
-				>Auto-animate.</a
-			> allowing users to dynamically add and remove tags with
-			visual animations while efficiently using available space.
+			A project built with Svelte Kit, TailwindCSS, and
+			Auto-animate, allowing users to dynamically add and
+			remove tags with visual animations.
 		</p>
 	</div>
 	<section
-		class="smooth-scroll bg-slate-900 flex flex-col m-0 mt-0 w-[100vw] h-[100v%]"
+		class="smooth-scroll bg-slate-900 flex flex-col m-0 mt-0"
 	>
 		<label for="add-tag-input" class="tag-input">
 			<ul
 				use:autoAnimate={{
-					duration: 600,
+					duration: 400,
 					easing: 'ease-in-out'
 				}}
-				class="flex flex-row flex-wrap items-center justify-center w-[85vw] bg-pink-950/5 gap-2 h-[48vh] overflow-auto p-8"
+				class="flex flex-row flex-wrap items-center justify-center w-[80vw] bg-slate-900 gap-2 h-[60vh] overflow-auto"
 			>
 				{#each tags as tag, index (tag)}
 					<li
@@ -136,7 +113,7 @@
 					>
 						{tag}
 						<span
-							class="absolute w-[20px] right-0 cursor-pointer h-full bg-[var(--btn-bg-color)] text-[var(--text-color)]
+							class="absolute w-4 right-0 cursor-pointer h-full bg-[var(--btn-bg-color)] text-[var(--text-color)]
 	 						rounded-tr-[0.27rem] rounded-br-[0.27rem] text-[24px] font-thin leading-[24px]
 						  text-amber-50 selection:border-cyan-100"
 							tabindex="0"
@@ -151,11 +128,11 @@
 			</ul>
 
 			<div
-				class="abslute grid justify-center items-center box-border mt-8 h-[60px] rounded-xl"
+				class="grid justify-center items-center box-border h-[60px] rounded-xl"
 			>
-				<form action="" class="relative flex gap-0 p-0">
+				<form action="" class="flex gap-1">
 					<input
-						class="border-[1px] border-[var(--] align-middle rounded-[0.27rem] text-white bg-slate-900 pl-2"
+						class="border-2 border-amber-500 align-middle rounded-[0.27rem] text-white bg-slate-900 pl-2"
 						id="add-tag-input"
 						type="text"
 						placeholder="Add a tag..."
@@ -163,7 +140,7 @@
 					/>
 
 					<button
-						class="relative bg-[hsla(187,45%,14%,1)] border-4 border-[var(--bg-color)] align-center rounded-[0.27rem] text-white"
+						class="box-shadow bg-[hsla(187,45%,14%,1)] border-4 border-[var(--bg-color)] align-center rounded-[0.27rem] text-white relative p"
 						type="button"
 						id="add-tag-submit"
 						on:click={addItem}>Add</button
@@ -176,28 +153,26 @@
 
 <style>
 	button {
-		padding: 4px 24px;
+		padding: 0 18px;
 		font-size: 1rem;
-		line-height: 38px;
 		text-align: center;
 		color: #fff;
-		text-shadow: 3px 3px 1px #41635f;
+		text-shadow: x 1px 1px #a51c1c;
 		border-radius: 10px;
-		box-shadow:
+		/* box-shadow:
 			inset 2px 2px 3px rgba(255, 255, 255, 0.6),
-			inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+			inset -2px -2px 3px rgba(0, 0, 0, 0.6); */
 	}
 
 	button:active {
 		box-shadow:
 			inset -2px -2px 3px rgba(255, 255, 255, 0.6),
 			inset 2px 2px 3px rgba(0, 0, 0, 0.6);
-		scale: 0.95;
 	}
 
 	:root {
 		--text-color: hsla(300, 29%, 97%, 0.84);
-		--bg-color: hsla(278, 85%, 3%, 0.714);
+		--bg-color: hsla(270, 85%, 28%, 0.692);
 		--btn-bg-color: #074e5a;
 		--border-radius: 0.47rem;
 	}
@@ -207,9 +182,6 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		border-radius: var(--border-radius);
-		padding: 0.5rem;
-		background-color: var(--bg-color);
-		box-shadow: 0 4rem 1rem 5rem var(--bg-color);
+		height: 100%;
 	}
 </style>

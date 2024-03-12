@@ -106,20 +106,15 @@
 			Unique Tag Board
 		</h1>
 		<p
-			class="text-[16px] text-amber-50 font-normal w-[32ch] text-pretty text-center mb-4"
+			class="text-[16px] text-amber-50 font-normal w-[35ch] text-pretty text-center mb-4"
 		>
-			A project built with <a href="https://kit.svelte.dev"
-				>Svelte Kit</a
-			>,
-			<a href="https://tailwindcss.com">TailwindCSS </a>and
-			<a href="https://auto-animate.formkit.com/"
-				>Auto-animate.</a
-			> allowing users to dynamically add and remove tags with
-			visual animations while efficiently using available space.
+			A project built with Svelte Kit, TailwindCSS, and
+			Auto-animate, allowing users to dynamically add and
+			remove tags with visual animations.
 		</p>
 	</div>
 	<section
-		class="smooth-scroll bg-slate-900 flex flex-col m-0 mt-0 w-[100vw] h-[100v%]"
+		class="smooth-scroll bg-slate-900 flex flex-col m-0 mt-0 w-[100vw] h-[100v%] p-4"
 	>
 		<label for="add-tag-input" class="tag-input">
 			<ul
@@ -127,7 +122,7 @@
 					duration: 600,
 					easing: 'ease-in-out'
 				}}
-				class="flex flex-row flex-wrap items-center justify-center w-[85vw] bg-pink-950/5 gap-2 h-[48vh] overflow-auto p-8"
+				class="flex flex-row flex-wrap items-center justify-center w-[80vw] bg-slate-900 gap-2 h-[45vh] overflow-auto"
 			>
 				{#each tags as tag, index (tag)}
 					<li
