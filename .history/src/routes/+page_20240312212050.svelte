@@ -40,6 +40,8 @@
 
 	import autoAnimate from '@formkit/auto-animate';
 
+
+
 	function addItem(e) {
 		const input = document.getElementById('add-tag-input');
 		const value = input.value.trim();
@@ -104,18 +106,18 @@
 					duration: 400,
 					easing: 'ease-in-out'
 				}}
-				class="flex flex-row flex-wrap items-center justify-center w-[80vw] bg-slate-900 gap-2 h-[60vh] overflow-auto"
+				class="flex flex-row flex-wrap items-center justify-center w-[80vw] bg-slate-900 gap-4 h-[60vh] mb-4"
 			>
 				{#each tags as tag, index (tag)}
 					<li
-						class="relative text-[16px] grid grid-cols-[1fr] place-items-center box-border rounded-[0.27rem] bg-[var(--bg-color)]
-					    text-center font-semibold leading-none text-[var(--text-color)] border-[1px] border-cyan-200 pl-1 pr-5 mb-1 py-1"
+						class="text-[16px] grid grid-cols-[1fr_32px] place-items-center box-border rounded-[0.27rem] bg-[var(--bg-color)]
+					    text-start w-[calc(content+62px)] font-semibold leading-none text-[var(--text-color)] border-[1px] border-cyan-200 pl-2 mr-2 tra"
 					>
 						{tag}
 						<span
-							class="absolute w-4 right-0 cursor-pointer h-full bg-[var(--btn-bg-color)] text-[var(--text-color)]
-	 						rounded-tr-[0.27rem] rounded-br-[0.27rem] text-[24px] font-thin leading-[24px]
-						  text-amber-50 selection:border-cyan-100"
+							class="relative w-6 cursor-pointer h-full bg-[var(--btn-bg-color)] text-[var(--text-color)]
+	 						rounded-tr-[0.27rem] rounded-br-[0.27rem] m-[0] text-[32px] font-thin leading-none
+						  text-amber-50 selection:border-cyan-100 pb-1 pl-1 pr-0"
 							tabindex="0"
 							role="button"
 							on:click={() => remove(tag)}
@@ -159,6 +161,7 @@
 		color: #fff;
 		text-shadow: x 1px 1px #a51c1c;
 		border-radius: 10px;
+
 		box-shadow:
 			inset 2px 2px 3px rgba(255, 255, 255, 0.6),
 			inset -2px -2px 3px rgba(0, 0, 0, 0.6);

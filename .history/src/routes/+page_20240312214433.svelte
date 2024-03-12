@@ -109,7 +109,7 @@
 				{#each tags as tag, index (tag)}
 					<li
 						class="relative text-[16px] grid grid-cols-[1fr] place-items-center box-border rounded-[0.27rem] bg-[var(--bg-color)]
-					    text-center font-semibold leading-none text-[var(--text-color)] border-[1px] border-cyan-200 pl-1 pr-5 mb-1 py-1"
+					    text-center font-semibold leading-none text-[var(--text-color)] border-[1px] border-cyan-200 pl-1 pr-4 mb-1 py-1"
 					>
 						{tag}
 						<span

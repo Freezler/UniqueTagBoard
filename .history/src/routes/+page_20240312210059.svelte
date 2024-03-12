@@ -2,23 +2,25 @@
 	import { onMount } from 'svelte';
 
 	//   Define an array of tags
-	let tags = [
-		'Svelte',
-		'SvelteKit',
-		'TailwindCSS',
-		'Netlify',
-		'Prettier',
-		'ESLint',
-		'Vite',
-		'VSCode',
-		'GitHub',
-		'NPM',
-		'Vercel',
-		'Figma',
-		'AutoAnimate'
-	];
+let tags = [
+				'Svelte',
+				'SvelteKit',
+				'TailwindCSS',
+				'Netlify',
+				'Prettier',
+				'ESLint',
+				'Vite',
+				'VSCode',
+				'GitHub',
+				'NPM',
+				'Vercel',
+				'Figma',
+				'AutoAnimate'
+			];
+	
 
 	onMount(() => {
+		
 		// Check if local storage is available
 		if (localStorage) {
 			// Retrieve the tags array from local storage
@@ -26,11 +28,24 @@
 				localStorage.getItem('tags')
 			);
 			if (storedTags) {
-				tags = storedTags;
+				 tags = storedTags;
 			}
 		} else {
 			// Handle the case where local storage is not available
-			let tags = tags;
+			let tags = ['Svelte',
+				'SvelteKit',
+				'TailwindCSS',
+				'Netlify',
+				'Prettier',
+				'ESLint',
+				'Vite',
+				'VSCode',
+				'GitHub',
+				'NPM',
+				'Vercel',
+				'Figma',
+				'AutoAnimate'];
+			
 
 			// Save the tags array to local storage
 			localStorage.setItem('tags', JSON.stringify(tags));
@@ -39,6 +54,8 @@
 	});
 
 	import autoAnimate from '@formkit/auto-animate';
+
+	console.log(tags);
 
 	function addItem(e) {
 		const input = document.getElementById('add-tag-input');
@@ -88,7 +105,7 @@
 			Unique Tag Board
 		</h1>
 		<p
-			class="text-[16px] text-amber-50 font-normal w-[35ch] text-pretty text-center scroll-pb-48"
+			class="text-[6px] text-amber-50 font-normal w-[35ch] text-pretty text-center scroll-pb-48"
 		>
 			A project built with Svelte Kit, TailwindCSS, and
 			Auto-animate, allowing users to dynamically add and
@@ -104,18 +121,19 @@
 					duration: 400,
 					easing: 'ease-in-out'
 				}}
-				class="flex flex-row flex-wrap items-center justify-center w-[80vw] bg-slate-900 gap-2 h-[60vh] overflow-auto"
+				class="flex flex-row flex-wrap items-center justify-center w-[80vw] bg-slate-900 gap-2 h-[60vh] mb-8"
 			>
 				{#each tags as tag, index (tag)}
 					<li
-						class="relative text-[16px] grid grid-cols-[1fr] place-items-center box-border rounded-[0.27rem] bg-[var(--bg-color)]
-					    text-center font-semibold leading-none text-[var(--text-color)] border-[1px] border-cyan-200 pl-1 pr-5 mb-1 py-1"
+						class="text-[20px] grid grid-cols-[1fr_32px] place-items-center gap-4 rounded-[0.27rem] bg-[var(--bg-color)] p-1
+						
+					  text-center w-[max-content] font-semibold leading-none text-[var(--text-color)] border-[1px] border-cyan-200 pl-2"
 					>
 						{tag}
 						<span
-							class="absolute w-4 right-0 cursor-pointer h-full bg-[var(--btn-bg-color)] text-[var(--text-color)]
-	 						rounded-tr-[0.27rem] rounded-br-[0.27rem] text-[24px] font-thin leading-[24px]
-						  text-amber-50 selection:border-cyan-100"
+							class="relative w-6 cursor-pointer h-full bg-[var(--btn-bg-color)] text-[var(--text-color)]
+	 						rounded-tr-[0.27rem] rounded-br-[0.27rem] m-[0] text-[32px] font-thin leading-none
+						  text-amber-50 selection:border-cyan-100 pb-1"
 							tabindex="0"
 							role="button"
 							on:click={() => remove(tag)}
@@ -159,6 +177,7 @@
 		color: #fff;
 		text-shadow: x 1px 1px #a51c1c;
 		border-radius: 10px;
+
 		box-shadow:
 			inset 2px 2px 3px rgba(255, 255, 255, 0.6),
 			inset -2px -2px 3px rgba(0, 0, 0, 0.6);
