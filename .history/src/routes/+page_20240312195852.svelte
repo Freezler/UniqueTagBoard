@@ -1,47 +1,60 @@
 <script>
-	import { onMount } from 'svelte';
+	function storageAvailable(type) {
+  let storage;
+  try {
+    storage = window[type];
+    const x = "__storage_test__";
+    storage.setItem(x, x);
+    storage.removeItem(x);
+    return true;
+  } catch (e) {
+    return (
+      e instanceof DOMException &&
+      // everything except Firefox
+      (e.code === 22 ||
+        // Firefox
+        e.code === 1014 ||
+        // test name field too, because code might not be present
+        // everything except Firefox
+        e.name === "QuotaExceededError" ||
+        // Firefox
+        e.name === "NS_ERROR_DOM_QUOTA_REACHED") &&
+      // acknowledge QuotaExceededError only if there's something already stored
+      storage &&
+      storage.length !== 0
+    );
+  }
+}
 
-	//   Define an array of tags
+if (storageAvailable("localStorage")) {
+  // Yippee! We can use localStorage awesomeness
+  localStorage.setItem("key", "value");
 
-	let tags = [];
+} else {
+  // Too bad, no localStorage for us
+  console.log("Local storage not available");
+}
 
-	onMount(() => {
-		// Check if local storage is available
-		if (localStorage) {
-			// Retrieve the tags array from local storage
-			let storedTags = JSON.parse(
-				localStorage.getItem('tags')
-			);
-			if (storedTags) {
-				tags = storedTags;
-			}
-		} else {
-			// Handle the case where local storage is not available
-			let tags = [
-				'Svelte',
-				'SvelteKit',
-				'TailwindCSS',
-				'Netlify',
-				'Prettier',
-				'ESLint',
-				'Vite',
-				'VSCode',
-				'GitHub',
-				'NPM',
-				'Vercel',
-				'Figma',
-				'AutoAnimate'
-			];
-
-			// Save the tags array to local storage
-			localStorage.setItem('tags', JSON.stringify(tags));
-		}
-	});
 
 	import autoAnimate from '@formkit/auto-animate';
 
+	let tags = [
+		'Svelte',
+		'SvelteKit',
+		'TailwindCSS',
+		'Netlify',
+		'Prettier',
+		'ESLint',
+		'Vite',
+		'VSCode',
+		'GitHub',
+		'NPM',
+		'Vercel',
+		'Figma',
+		'AutoAnimate'
+	];
 	console.log(tags);
-
+	
 	function addItem(e) {
 		const input = document.getElementById('add-tag-input');
 		const value = input.value.trim();
@@ -72,7 +85,6 @@
 			input.value = '';
 			input.classList.remove('border-red-600'); //togg = 'red';
 		}
-		localStorage.setItem('tags', JSON.stringify(tags));
 	}
 
 	function remove(target) {

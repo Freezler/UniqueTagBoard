@@ -72,7 +72,6 @@
 			input.value = '';
 			input.classList.remove('border-red-600'); //togg = 'red';
 		}
-		localStorage.setItem('tags', JSON.stringify(tags));
 	}
 
 	function remove(target) {

@@ -1,47 +1,49 @@
 <script>
-	import { onMount } from 'svelte';
+// Check if local storage is available
+if (storageAvailable("localStorage")) {
+  // Store the tags array in local storage
+  localStorage.setItem("tags", JSON.stringify(tags));
 
-	//   Define an array of tags
+  // Retrieve the tags array from local storage
+  let storedTags = JSON.parse(localStorage.getItem("tags"));
+  console.log(storedTags);
+} else {
+  // Handle the case where local storage is not available
+  console.log("Local storage not available");
+}
 
-	let tags = [];
+if (storageAvailable("localStorage")) {
+  // Yippee! We can use localStorage awesomeness
+  localStorage.setItem("key", "value");
 
-	onMount(() => {
-		// Check if local storage is available
-		if (localStorage) {
-			// Retrieve the tags array from local storage
-			let storedTags = JSON.parse(
-				localStorage.getItem('tags')
-			);
-			if (storedTags) {
-				tags = storedTags;
-			}
-		} else {
-			// Handle the case where local storage is not available
-			let tags = [
-				'Svelte',
-				'SvelteKit',
-				'TailwindCSS',
-				'Netlify',
-				'Prettier',
-				'ESLint',
-				'Vite',
-				'VSCode',
-				'GitHub',
-				'NPM',
-				'Vercel',
-				'Figma',
-				'AutoAnimate'
-			];
+  let value = localStorage.getItem("key");
+  console.log(value);
 
-			// Save the tags array to local storage
-			localStorage.setItem('tags', JSON.stringify(tags));
-		}
-	});
+} else {
+  // Too bad, no localStorage for us
+  console.log("Local storage not available");
+}
+
 
 	import autoAnimate from '@formkit/auto-animate';
 
+	let tags = [
+		'Svelte',
+		'SvelteKit',
+		'TailwindCSS',
+		'Netlify',
+		'Prettier',
+		'ESLint',
+		'Vite',
+		'VSCode',
+		'GitHub',
+		'NPM',
+		'Vercel',
+		'Figma',
+		'AutoAnimate'
+	];
 	console.log(tags);
-
+	
 	function addItem(e) {
 		const input = document.getElementById('add-tag-input');
 		const value = input.value.trim();
@@ -72,7 +74,6 @@
 			input.value = '';
 			input.classList.remove('border-red-600'); //togg = 'red';
 		}
-		localStorage.setItem('tags', JSON.stringify(tags));
 	}
 
 	function remove(target) {

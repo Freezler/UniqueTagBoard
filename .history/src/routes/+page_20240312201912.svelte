@@ -1,47 +1,43 @@
 <script>
-	import { onMount } from 'svelte';
+  import { onMount } from 'svelte';
 
-	//   Define an array of tags
+//   Define an array of tags
+  let tags = [
+  	'Svelte',
+  	'SvelteKit',
+  	'TailwindCSS',
+  	'Netlify',
+  	'Prettier',
+  	'ESLint',
+  	'Vite',
+  	'VSCode',
+  	'GitHub',
+  	'NPM',
+  	'Vercel',
+  	'Figma',
+  	'AutoAnimate'
+  ];
+ 
 
-	let tags = [];
+  onMount(() => {
+    // Check if local storage is available
+    if (localStorage) {
+      // Store the tags array in local storage
+      localStorage.setItem("tags", JSON.stringify(tags));
 
-	onMount(() => {
-		// Check if local storage is available
-		if (localStorage) {
-			// Retrieve the tags array from local storage
-			let storedTags = JSON.parse(
-				localStorage.getItem('tags')
-			);
-			if (storedTags) {
-				tags = storedTags;
-			}
-		} else {
-			// Handle the case where local storage is not available
-			let tags = [
-				'Svelte',
-				'SvelteKit',
-				'TailwindCSS',
-				'Netlify',
-				'Prettier',
-				'ESLint',
-				'Vite',
-				'VSCode',
-				'GitHub',
-				'NPM',
-				'Vercel',
-				'Figma',
-				'AutoAnimate'
-			];
-
-			// Save the tags array to local storage
-			localStorage.setItem('tags', JSON.stringify(tags));
-		}
-	});
+      // Retrieve the tags array from local storage
+      let storedTags = JSON.parse(localStorage.getItem("tags"));
+      console.log(storedTags);
+    } else {
+      // Handle the case where local storage is not available
+      console.log("Local storage not available");
+    }
+  });
 
 	import autoAnimate from '@formkit/auto-animate';
 
 	console.log(tags);
-
+	
 	function addItem(e) {
 		const input = document.getElementById('add-tag-input');
 		const value = input.value.trim();
@@ -72,7 +68,6 @@
 			input.value = '';
 			input.classList.remove('border-red-600'); //togg = 'red';
 		}
-		localStorage.setItem('tags', JSON.stringify(tags));
 	}
 
 	function remove(target) {

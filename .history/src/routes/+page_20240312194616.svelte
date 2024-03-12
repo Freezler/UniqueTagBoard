@@ -1,47 +1,23 @@
 <script>
-	import { onMount } from 'svelte';
-
-	//   Define an array of tags
-
-	let tags = [];
-
-	onMount(() => {
-		// Check if local storage is available
-		if (localStorage) {
-			// Retrieve the tags array from local storage
-			let storedTags = JSON.parse(
-				localStorage.getItem('tags')
-			);
-			if (storedTags) {
-				tags = storedTags;
-			}
-		} else {
-			// Handle the case where local storage is not available
-			let tags = [
-				'Svelte',
-				'SvelteKit',
-				'TailwindCSS',
-				'Netlify',
-				'Prettier',
-				'ESLint',
-				'Vite',
-				'VSCode',
-				'GitHub',
-				'NPM',
-				'Vercel',
-				'Figma',
-				'AutoAnimate'
-			];
-
-			// Save the tags array to local storage
-			localStorage.setItem('tags', JSON.stringify(tags));
-		}
-	});
-
 	import autoAnimate from '@formkit/auto-animate';
 
+	let tags = [
+		'Svelte',
+		'SvelteKit',
+		'TailwindCSS',
+		'Netlify',
+		'Prettier',
+		'ESLint',
+		'Vite',
+		'VSCode',
+		'GitHub',
+		'NPM',
+		'Vercel',
+		'Figma',
+		'AutoAnimate'
+	];
 	console.log(tags);
-
+	
 	function addItem(e) {
 		const input = document.getElementById('add-tag-input');
 		const value = input.value.trim();
@@ -72,7 +48,6 @@
 			input.value = '';
 			input.classList.remove('border-red-600'); //togg = 'red';
 		}
-		localStorage.setItem('tags', JSON.stringify(tags));
 	}
 
 	function remove(target) {

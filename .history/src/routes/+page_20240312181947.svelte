@@ -1,46 +1,20 @@
 <script>
-	import { onMount } from 'svelte';
-
-	//   Define an array of tags
-
-	let tags = [];
-
-	onMount(() => {
-		// Check if local storage is available
-		if (localStorage) {
-			// Retrieve the tags array from local storage
-			let storedTags = JSON.parse(
-				localStorage.getItem('tags')
-			);
-			if (storedTags) {
-				tags = storedTags;
-			}
-		} else {
-			// Handle the case where local storage is not available
-			let tags = [
-				'Svelte',
-				'SvelteKit',
-				'TailwindCSS',
-				'Netlify',
-				'Prettier',
-				'ESLint',
-				'Vite',
-				'VSCode',
-				'GitHub',
-				'NPM',
-				'Vercel',
-				'Figma',
-				'AutoAnimate'
-			];
-
-			// Save the tags array to local storage
-			localStorage.setItem('tags', JSON.stringify(tags));
-		}
-	});
-
 	import autoAnimate from '@formkit/auto-animate';
-
-	console.log(tags);
+	let tags = [
+		'Svelte',
+		'SvelteKit',
+		'TailwindCSS',
+		'Netlify',
+		'Prettier',
+		'ESLint',
+		'Vite',
+		'VSCode',
+		'GitHub',
+		'NPM',
+		'Vercel',
+		'Figma',
+		'AutoAnimate'
+	];
 
 	function addItem(e) {
 		const input = document.getElementById('add-tag-input');
@@ -55,7 +29,6 @@
 			if (!tags.includes(value)) {
 				// If it doesn't, add it to the array of tags
 				tags.push(value);
-
 				tags = tags; // Force Svelte to re-render the page with the new tag
 				input.value = ''; // Clear the input field
 
@@ -72,7 +45,6 @@
 			input.value = '';
 			input.classList.remove('border-red-600'); //togg = 'red';
 		}
-		localStorage.setItem('tags', JSON.stringify(tags));
 	}
 
 	function remove(target) {
@@ -80,9 +52,9 @@
 	}
 </script>
 
-<body class="grid bg-slate-950 h-[100vh]">
+<body class="grid bg-slate-950 h-[100vh] ">
 	<div
-		class="grid place-items-center grid-cols-1 grid-rows-1 pb-2 bg-slate-900 text-center text-amber-50"
+		class="grid place-items-center grid-cols-1 grid-rows-1 pb-2 bg-slate-900 text-center text-amber-50 "
 	>
 		<h1
 			class="text-3xl font-semibold pb-2 uppercase text-amber-50"
@@ -90,15 +62,14 @@
 			Unique Tag Board
 		</h1>
 		<p
-			class="text-[6px] text-amber-50 font-normal w-[35ch] text-pretty text-center scroll-pb-48"
+			class="text-[6px] text-amber-50 font-thin w-[35ch] text-pretty text-center scroll-pb-48"
 		>
 			A project built with Svelte Kit, TailwindCSS, and
 			Auto-animate, allowing users to dynamically add and
-			remove tags with visual animations.
-		</p>
+			remove tags with visual animations. 
 	</div>
 	<section
-		class="smooth-scroll bg-slate-900 flex flex-col m-0 mt-0"
+		class="smooth-scroll bg-slate-900 flex flex-col  m-0 mt-0"
 	>
 		<label for="add-tag-input" class="tag-input">
 			<ul
@@ -112,7 +83,7 @@
 					<li
 						class="text-[20px] grid grid-cols-[1fr_32px] place-items-center gap-2 rounded-[0.27rem] bg-[var(--bg-color)] p-1
 						
-					  text-center w-[max-content] font-semibold leading-none text-[var(--text-color)] border-[1px] border-cyan-200 pl-2"
+					  text-center w-[max-content]  font-semibold leading-none text-[var(--text-color)] border-[1px] border-cyan-200 pl-2"
 					>
 						{tag}
 						<span
@@ -131,8 +102,9 @@
 			</ul>
 
 			<div
-				class="grid justify-center items-center box-border h-[60px] rounded-xl"
+				class="grid justify-center items-center w-full h-[60px] bg-pink-200/20 border-[1px] rounded-xl"
 			>
+				
 				<form action="" class="flex gap-1">
 					<input
 						class="border-2 border-amber-500 align-middle rounded-[0.27rem] text-white bg-slate-900 pl-2"
@@ -143,7 +115,6 @@
 					/>
 
 					<button
-						class="border-0 border-[var(--bg-color)] align-middle rounded-[0.27rem] text-white"
 						type="button"
 						id="add-tag-submit"
 						on:click={addItem}>Add</button
@@ -156,16 +127,28 @@
 
 <style>
 	button {
+		border: 0;
+		line-height: 2.5;
 		padding: 0 18px;
 		font-size: 1rem;
 		text-align: center;
 		color: #fff;
-		text-shadow: x 1px 1px #a51c1c;
+		text-shadow: 1px 1px 1px #000;
 		border-radius: 10px;
-
+		background-color: rgba(220, 0, 0, 1);
+		background-image: linear-gradient(
+			to top left,
+			rgba(0, 0, 0, 0.2),
+			rgba(0, 0, 0, 0.2) 30%,
+			rgba(0, 0, 0, 0)
+		);
 		box-shadow:
 			inset 2px 2px 3px rgba(255, 255, 255, 0.6),
 			inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+	}
+
+	button:hover {
+		background-color: rgba(255, 0, 0, 1);
 	}
 
 	button:active {

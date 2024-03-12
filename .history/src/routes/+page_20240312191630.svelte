@@ -1,79 +1,57 @@
 <script>
-	import { onMount } from 'svelte';
-
-	//   Define an array of tags
-
-	let tags = [];
-
-	onMount(() => {
-		// Check if local storage is available
-		if (localStorage) {
-			// Retrieve the tags array from local storage
-			let storedTags = JSON.parse(
-				localStorage.getItem('tags')
-			);
-			if (storedTags) {
-				tags = storedTags;
-			}
-		} else {
-			// Handle the case where local storage is not available
-			let tags = [
-				'Svelte',
-				'SvelteKit',
-				'TailwindCSS',
-				'Netlify',
-				'Prettier',
-				'ESLint',
-				'Vite',
-				'VSCode',
-				'GitHub',
-				'NPM',
-				'Vercel',
-				'Figma',
-				'AutoAnimate'
-			];
-
-			// Save the tags array to local storage
-			localStorage.setItem('tags', JSON.stringify(tags));
-		}
-	});
-
 	import autoAnimate from '@formkit/auto-animate';
 
-	console.log(tags);
+	let tags = [
+		'Svelte',
+		'SvelteKit',
+		'TailwindCSS',
+		'Netlify',
+		'Prettier',
+		'ESLint',
+		'Vite',
+		'VSCode',
+		'GitHub',
+		'NPM',
+		'Vercel',
+		'Figma',
+		'AutoAnimate'
+	];
 
-	function addItem(e) {
-		const input = document.getElementById('add-tag-input');
-		const value = input.value.trim();
+	if (localStorage.getItem('tags'))
+		function addItem(e) {
+			const input =
+				document.getElementById('add-tag-input');
+			const value = input.value.trim();
 
-		// If user has typed something and hit enter or clicked the button
-		if (
-			value !== '' &&
-			(e.key === 'Enter' || e.type === 'click')
-		) {
-			// Check if the tag already exists in the array
-			if (!tags.includes(value)) {
-				// If it doesn't, add it to the array of tags
-				tags.push(value);
+			// If user has typed something and hit enter or clicked the button
+			if (
+				value !== '' &&
+				(e.key === 'Enter' || e.type === 'click')
+			) {
+				// Check if the tag already exists in the array
+				if (!tags.includes(value)) {
+					// If it doesn't, add it to the array of tags
+					tags.push(value);
 
-				tags = tags; // Force Svelte to re-render the page with the new tag
-				input.value = ''; // Clear the input field
+					tags = tags; // Force Svelte to re-render the page with the new tag
+					input.value = ''; // Clear the input field
 
-				// Sort the tags alphabetically
-				tags.sort((a, b) => a.localeCompare(b));
-			} else {
-				// Handle duplicate tag error
-				const bg = document.querySelector('#add-tag-input');
-				input.classList.add('border-red-600'); //togg = 'red';
-				console.log('no duplicate tags please');
-				alert('no duplicate tags please');
-				return bg;
+					// Sort the tags alphabetically
+					tags.sort((a, b) => a.localeCompare(b));
+				} else {
+					// Handle duplicate tag error
+					const bg = document.querySelector(
+						'#add-tag-input'
+					);
+					input.classList.add('border-red-600'); //togg = 'red';
+					console.log('no duplicate tags please');
+					alert('no duplicate tags please');
+					return bg;
+				}
+				input.value = '';
+				input.classList.remove('border-red-600'); //togg = 'red';
 			}
-			input.value = '';
-			input.classList.remove('border-red-600'); //togg = 'red';
 		}
-		localStorage.setItem('tags', JSON.stringify(tags));
-	}
 
 	function remove(target) {
 		tags = tags.filter((tag) => target !== tag);
