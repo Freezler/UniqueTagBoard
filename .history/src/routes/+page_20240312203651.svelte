@@ -6,21 +6,6 @@
 	let tags = [];
 
 	onMount(() => {
-		let tags = [
-				'Svelte',
-				'SvelteKit',
-				'TailwindCSS',
-				'Netlify',
-				'Prettier',
-				'ESLint',
-				'Vite',
-				'VSCode',
-				'GitHub',
-				'NPM',
-				'Vercel',
-				'Figma',
-				'AutoAnimate'
-			];
 		// Check if local storage is available
 		if (localStorage) {
 			// Retrieve the tags array from local storage
