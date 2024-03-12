@@ -2,21 +2,7 @@
 	import { onMount } from 'svelte';
 
 	//   Define an array of tags
-let tags = [
-				'Svelte',
-				'SvelteKit',
-				'TailwindCSS',
-				'Netlify',
-				'Prettier',
-				'ESLint',
-				'Vite',
-				'VSCode',
-				'GitHub',
-				'NPM',
-				'Vercel',
-				'Figma',
-				'AutoAnimate'
-			];
+
 	
 
 	onMount(() => {

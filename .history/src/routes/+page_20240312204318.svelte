@@ -2,7 +2,11 @@
 	import { onMount } from 'svelte';
 
 	//   Define an array of tags
-let tags = [
+
+	
+
+	onMount(() => {
+		let tags = [
 				'Svelte',
 				'SvelteKit',
 				'TailwindCSS',
@@ -17,10 +21,6 @@ let tags = [
 				'Figma',
 				'AutoAnimate'
 			];
-	
-
-	onMount(() => {
-		
 		// Check if local storage is available
 		if (localStorage) {
 			// Retrieve the tags array from local storage
