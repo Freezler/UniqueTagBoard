@@ -54,7 +54,7 @@
 
 <body class="grid bg-slate-950 h-full ">
 	<div
-		class="grid place-items-center grid-cols-1 grid-rows-1 pb-2 bg-slate-900 text-center text-amber-50 "
+		class="grid place-items-center grid-cols-1 grid-rows-2 pb-0 bg-slate-900 text-center text-amber-50 "
 	>
 		<h1
 			class="text-xl font-semibold pb-2 uppercase text-amber-50"
@@ -66,7 +66,11 @@
 		>
 			A project built with Svelte Kit, TailwindCSS, and
 			Auto-animate, allowing users to dynamically add and
-			remove tags with visual animations. 
+			remove tags with visual animations. The repository
+			contains frontend code for tag management and may
+			include configurations for Svelte Kit and related
+			tools.
+		</p>
 	</div>
 	<section
 		class="smooth-scroll bg-slate-900 flex flex-col  m-0 mt-0"
@@ -77,7 +81,7 @@
 					duration: 400,
 					easing: 'ease-in-out'
 				}}
-				class="flex flex-row flex-wrap items-center justify-center w-[80vw] bg-slate-900 gap-2 h-[60vh] mb-8"
+				class="flex flex-row flex-wrap items-center justify-center w-[80vw] bg-slate-900 gap-2 h-[60vh] "
 			>
 				{#each tags as tag, index (tag)}
 					<li
@@ -102,7 +106,9 @@
 			</ul>
 
 			<div
-				class="grid justify-center items-center w-full h-[60px] bg-pink-200/20 border-[1px] rounded-xl"
+				class="grid content-normalrelative w-full h-[max
+				
+				in-content] bg-pink-200/20 p-8 rounded-xl"
 			>
 				
 				<form action="" class="flex gap-1">

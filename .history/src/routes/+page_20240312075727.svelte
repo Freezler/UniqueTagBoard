@@ -66,7 +66,11 @@
 		>
 			A project built with Svelte Kit, TailwindCSS, and
 			Auto-animate, allowing users to dynamically add and
-			remove tags with visual animations. 
+			remove tags with visual animations. The repository
+			contains frontend code for tag management and may
+			include configurations for Svelte Kit and related
+			tools.
+		</p>
 	</div>
 	<section
 		class="smooth-scroll bg-slate-900 flex flex-col  m-0 mt-0"
@@ -77,7 +81,7 @@
 					duration: 400,
 					easing: 'ease-in-out'
 				}}
-				class="flex flex-row flex-wrap items-center justify-center w-[80vw] bg-slate-900 gap-2 h-[60vh] mb-8"
+				class="flex flex-row flex-wrap items-center justify-center w-[80vw] bg-slate-900 gap-2 h-[60vh] pb-8"
 			>
 				{#each tags as tag, index (tag)}
 					<li

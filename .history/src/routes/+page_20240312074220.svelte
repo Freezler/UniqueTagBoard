@@ -52,9 +52,9 @@
 	}
 </script>
 
-<body class="grid bg-slate-950 h-full ">
+<body class="bg-slate-950 h-[80vh]">
 	<div
-		class="grid place-items-center grid-cols-1 grid-rows-1 pb-2 bg-slate-900 text-center text-amber-50 "
+		class="grid place-items-center pb-0 bg-slate-900 pt-4 text-center text-amber-50"
 	>
 		<h1
 			class="text-xl font-semibold pb-2 uppercase text-amber-50"
@@ -62,14 +62,18 @@
 			Unique Tag Board
 		</h1>
 		<p
-			class="text-[6px] text-amber-50 font-thin w-[35ch] text-pretty text-center scroll-pb-48"
+			class="text-[6px] text-amber-50 font-thin w-[35ch] text-pretty text-center"
 		>
 			A project built with Svelte Kit, TailwindCSS, and
 			Auto-animate, allowing users to dynamically add and
-			remove tags with visual animations. 
+			remove tags with visual animations. The repository
+			contains frontend code for tag management and may
+			include configurations for Svelte Kit and related
+			tools.
+		</p>
 	</div>
 	<section
-		class="smooth-scroll bg-slate-900 flex flex-col  m-0 mt-0"
+		class="smooth-scroll bg-slate-900 flex flex-col h-full m-0 mt-0"
 	>
 		<label for="add-tag-input" class="tag-input">
 			<ul
@@ -77,7 +81,7 @@
 					duration: 400,
 					easing: 'ease-in-out'
 				}}
-				class="flex flex-row flex-wrap items-center justify-center w-[80vw] bg-slate-900 gap-2 h-[60vh] mb-8"
+				class="flex flex-row flex-wrap items-center justify-center w-[80vw] bg-slate-900 gap-2 h-[40vh] mb-2"
 			>
 				{#each tags as tag, index (tag)}
 					<li
@@ -102,12 +106,16 @@
 			</ul>
 
 			<div
-				class="grid justify-center items-center w-full h-[60px] bg-pink-200/20 border-[1px] rounded-xl"
+				class="  grid place-items-center left-0 w-[content] h-[auto] bg-pink-200/20 p-8 rounded-xl"
 			>
-				
-				<form action="" class="flex gap-1">
+				<label
+					for="add-tag-input"
+					class="text-xl bottom-[72px] absolute px-2 py-1 text-pink-300 font-semibold rounded-[0.27rem] bg-indigo-700"
+					>UNIQUETAGBOARD</label
+				>
+				<form action="">
 					<input
-						class="border-2 border-amber-500 align-middle rounded-[0.27rem] text-white bg-slate-900 pl-2"
+						class="border-2 border-amber-500 pl-2 p-[7px] rounded-[0.27rem] text-white bg-slate-900"
 						id="add-tag-input"
 						type="text"
 						placeholder="Add a tag..."
