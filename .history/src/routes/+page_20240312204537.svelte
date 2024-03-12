@@ -28,11 +28,11 @@ let tags = [
 				localStorage.getItem('tags')
 			);
 			if (storedTags) {
-				let tags = storedTags;
+				tags = storedTags;
 			}
 		} else {
 			// Handle the case where local storage is not available
-			let tags = ['Svelte',
+			tags = ['Svelte',
 				'SvelteKit',
 				'TailwindCSS',
 				'Netlify',
