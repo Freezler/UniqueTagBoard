@@ -131,11 +131,11 @@
 			>
 				{#each tags as tag, index (tag)}
 					<div class="flex items-center align-middle gap-0">
-						<li class=" h-[36px] bg-[var(--btn-bg-color)] rounded-tl-[0.25rem] rounded-bl-[0.25rem] text-[var(--text-color)] pl-2 pr-2  border-[1px] border-[hsla(187,45%,74%,1)]">
+						<li class=" h-[3px] bg-[var(--btn-bg-color)] rounded-tl-[0.25rem] rounded-bl-[0.25rem] text-[var(--text-color)] pl-2 pr-2  border-[1px] border-[hsla(187,45%,74%,1)]">
 							{tag}
 						</li>
 						<span
-							class=" h-[36px] box-border bg-blue-500 text-center justify-center align-middle text-[var(--text-color)] rounded-tr-[0.25rem] rounded-br-[0.25rem] w-[30px] border-[1px] border-[hsla(187,45%,74%,1)]"
+							class=" h-[40px] box-border bg-blue-500 text-center justify-center align-middle text-[var(--text-color)] rounded-tr-[0.25rem] rounded-br-[0.25rem] w-[30px] border-[1px] border-[hsla(187,45%,74%,1)]"
 							tabindex="0"
 							role="button"
 							on:click={() => remove(tag)}

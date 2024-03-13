@@ -135,7 +135,7 @@
 							{tag}
 						</li>
 						<span
-							class=" h-[36px] box-border bg-blue-500 text-center justify-center align-middle text-[var(--text-color)] rounded-tr-[0.25rem] rounded-br-[0.25rem] w-[30px] border-[1px] border-[hsla(187,45%,74%,1)]"
+							class=" h-[40px] box-border bg-blue-500 text-center justify-center align-middle text-[var(--text-color)] rounded-tr-[0.25rem] rounded-br-[0.25rem] w-[30px] border-[1px] border-[hsla(187,45%,74%,1)]"
 							tabindex="0"
 							role="button"
 							on:click={() => remove(tag)}

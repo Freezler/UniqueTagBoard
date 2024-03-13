@@ -127,15 +127,15 @@
 					duration: 600,
 					easing: 'ease-in-out'
 				}}
-				class="overflow-scroll flex flex-row flex-wrap items-center justify-center w-[85vw] bg-pink-950/5 gap-2 h-[50vh] p-8 border-[1px] border-[hsla(187,45%,74%,1)] rounded-xl"
+				class="overflow-scroll flex flex-row flex-wrap items-center justify-center w-[85vw] bg-pink-950/5 gap-2 h-[50vh] p-8"
 			>
 				{#each tags as tag, index (tag)}
-					<div class="flex items-center align-middle gap-0">
-						<li class=" h-[36px] bg-[var(--btn-bg-color)] rounded-tl-[0.25rem] rounded-bl-[0.25rem] text-[var(--text-color)] pl-2 pr-2  border-[1px] border-[hsla(187,45%,74%,1)]">
+					<div class="flex items-center box-border">
+						<li class=" h-[32px] bg-[var(--btn-bg-color)] text-[var(--text-color)] pl-2 pr-2">
 							{tag}
 						</li>
 						<span
-							class=" h-[36px] box-border bg-blue-500 text-center justify-center align-middle text-[var(--text-color)] rounded-tr-[0.25rem] rounded-br-[0.25rem] w-[30px] border-[1px] border-[hsla(187,45%,74%,1)]"
+							class=" h-[32px] box-border bg-blue-500 text-center pb-12 text-[var(--text-color)] rounded-tr-[0.25rem] rounded-br-[0.25rem] w-[32px]"
 							tabindex="0"
 							role="button"
 							on:click={() => remove(tag)}

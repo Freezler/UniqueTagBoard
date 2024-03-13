@@ -127,15 +127,18 @@
 					duration: 600,
 					easing: 'ease-in-out'
 				}}
-				class="overflow-scroll flex flex-row flex-wrap items-center justify-center w-[85vw] bg-pink-950/5 gap-2 h-[50vh] p-8 border-[1px] border-[hsla(187,45%,74%,1)] rounded-xl"
+				class="overflow-scroll scroll-pe-44 flex flex-row flex-wrap items-center justify-center w-[85vw] bg-pink-950/5 gap-2 h-[48vh] p-8"
 			>
 				{#each tags as tag, index (tag)}
-					<div class="flex items-center align-middle gap-0">
-						<li class=" h-[36px] bg-[var(--btn-bg-color)] rounded-tl-[0.25rem] rounded-bl-[0.25rem] text-[var(--text-color)] pl-2 pr-2  border-[1px] border-[hsla(187,45%,74%,1)]">
-							{tag}
-						</li>
+					<li
+						class="relative text-[16px] grid grid-cols-[1fr] place-items-center box-border rounded-[0.27rem] bg-[var(--bg-color)]
+					    text-center font-semibold leading-none text-[var(--text-color)] border-[1px] border-cyan-200 pl-1 pr-5 mb-1 py-1"
+					>
+						{tag}
 						<span
-							class=" h-[36px] box-border bg-blue-500 text-center justify-center align-middle text-[var(--text-color)] rounded-tr-[0.25rem] rounded-br-[0.25rem] w-[30px] border-[1px] border-[hsla(187,45%,74%,1)]"
+							class="absolute w-[20px] right-0 cursor-pointer h-full bg-[var(--btn-bg-color)] text-[var(--text-color)]
+	 						rounded-tr-[0.27rem] rounded-br-[0.27rem] text-[24px] font-thin leading-[24px]
+						  text-amber-50 selection:border-cyan-100"
 							tabindex="0"
 							role="button"
 							on:click={() => remove(tag)}
@@ -143,37 +146,48 @@
 								e.key === 'Enter' && remove(tag)}
 							>&times;</span
 						>
-					</div>
+					</li>
 				{/each}
 			</ul>
 
 			<div
-				class="flex items-center box-border mt-8 h-[60px] rounded-xl"
+				class="abslute flex items-center box-border mt-8 h-[60px] rounded-xl"
 			>
-				<input
-					class="pl-2 flex-1 h-[40px] bg-[var(--btn-bg-color)] text-[var(--text-color)] m-[5px] box-border"
-					id="add-tag-input"
-					type="text"
-					placeholder="Add a tag..."
-					on:keydown={addItem}
-				/>
+				<form action="" class="relative flex gap-0 p-0">
+					<input
+						class="border-[1px] border-[var(--] align-middle rounded-[0.27rem] text-white bg-slate-900 pl-2"
+						id="add-tag-input"
+						type="text"
+						placeholder="Add a tag..."
+						on:keydown={addItem}
+					/>
 
-				<button
-					class="flex-1 pl-2 pr-2 h-[40px] bg-[var(--btn-bg-color)] text-[var(--text-color)] m-[5px] box-border rounded-md"
-					type="button"
-					name="add-tag-submit"
-					tabindex="0"
-					aria-label="Add tag"
-					id="add-tag-submit"
-					on:keydown={(e) => e.key === 'Enter' && addItem()}
-					on:click={addItem}>Add</button
-				>
+					<button
+						class="relative bg-[hsla(187,45%,14%,1)] border-4 border-[var(--bg-color)] align-center rounded-[0.27rem] text-white"
+						type="button"
+						id="add-tag-submit"
+						on:click={addItem}>Add</button
+					>
+				</form>
 			</div>
 		</label>
 	</section>
 </body>
 
 <style>
+	button {
+		padding: 4px 24px;
+		font-size: 1rem;
+		line-height: 38px;
+		text-align: center;
+		color: #fff;
+		text-shadow: 3px 3px 1px #41635f;
+		border-radius: 10px;
+		box-shadow:
+			inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+			inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+	}
+
 	button:active {
 		box-shadow:
 			inset -2px -2px 3px rgba(255, 255, 255, 0.6),
