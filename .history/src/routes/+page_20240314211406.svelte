@@ -2,8 +2,7 @@
 	import { onMount } from 'svelte';
 	import autoAnimate from '@formkit/auto-animate';
 
-	//   Define an array of tags
-	let defaultTags = [
+	const defaultTags = [
 		'AutoAnimate',
 		'AWS',
 		'C',
@@ -37,48 +36,51 @@
 		'Vue3'
 	];
 
-	let tags = defaultTags;
+	let tags = [...defaultTags];
 
 	onMount(() => {
-		if (localStorage) {
-			let storedTags = JSON.parse(
-				localStorage.getItem('tags')
-			);
-			if (storedTags) {
-				tags = storedTags;
-			}
-		} else {
-			localStorage.setItem('tags', JSON.stringify(tags));
-			return tags;
-		}
-	});
+    if (typeof localStorage !== 'undefined') {
+        let storedTags = JSON.parse(localStorage.getItem('tags'));
+        if (storedTags) {
+            tags = storedTags;
+        }
+    }
+});
 
-	function handleDuplicate(e) {
-		const bg = document.querySelector('#add-tag-input');
-		input.classList.add('border-red-600'); //togg = 'red';
-		console.log('no duplicate tags please');
-		alert('no duplicate tags please');
-		return bg;
+	function resetTags() {
+		tags = [...defaultTags];
+		localStorage.setItem('tags', JSON.stringify(tags));
 	}
 
 	function addItem(e) {
 		const input = document.getElementById('add-tag-input');
 		const value = input.value.trim();
 
-		// Check for Input
+		// If user has typed something and hit enter or clicked the button
 		if (
 			value !== '' &&
 			(e.key === 'Enter' || e.type === 'click')
 		) {
+			// Check if the tag already exists in the array
 			if (!tags.includes(value)) {
-				tags = [...tags, value];
-				input.value = '';
+				// If it doesn't, add it to the array of tags
+				tags.push(value);
+
+				tags = tags; // Force Svelte to re-render the page with the new tag
+				input.value = ''; // Clear the input field
+
+				// Sort the tags alphabetically
 				tags.sort((a, b) => a.localeCompare(b));
 			} else {
-				handleDuplicate();
+				// Handle duplicate tag error
+				const bg = document.querySelector('#add-tag-input');
+				input.classList.add('border-red-600'); 
+				console.log('no duplicate tags please');
+				alert('no duplicate tags please');
+				return bg;
 			}
 			input.value = '';
-			input.classList.remove('border-red-600'); //togg = 'red';
+			input.classList.remove('border-red-600'); 
 		}
 		localStorage.setItem('tags', JSON.stringify(tags));
 	}
@@ -87,10 +89,7 @@
 		tags = tags.filter((tag) => target !== tag);
 	}
 
-	const resetTags = () => {
-		tags = [...defaultTags];
-		localStorage.setItem('tags', JSON.stringify(tags));
-	};
+	localStorage.setItem('tags', JSON.stringify(tags));
 </script>
 
 <body

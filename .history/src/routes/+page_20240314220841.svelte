@@ -40,7 +40,9 @@
 	let tags = defaultTags;
 
 	onMount(() => {
+		// Check if local storage is available
 		if (localStorage) {
+			// Retrieve the tags array from local storage
 			let storedTags = JSON.parse(
 				localStorage.getItem('tags')
 			);
@@ -48,6 +50,10 @@
 				tags = storedTags;
 			}
 		} else {
+			// Handle the case where local storage is not available
+			let tags = tags;
+
+			// Save the tags array to local storage
 			localStorage.setItem('tags', JSON.stringify(tags));
 			return tags;
 		}

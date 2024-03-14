@@ -48,6 +48,9 @@
 				tags = storedTags;
 			}
 		} else {
+			let tags = tags;
+
+			// Save the tags array to local storage
 			localStorage.setItem('tags', JSON.stringify(tags));
 			return tags;
 		}

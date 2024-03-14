@@ -40,7 +40,9 @@
 	let tags = defaultTags;
 
 	onMount(() => {
+		// Check if local storage is available
 		if (localStorage) {
+			// Retrieve the tags array from local storage
 			let storedTags = JSON.parse(
 				localStorage.getItem('tags')
 			);
@@ -48,6 +50,10 @@
 				tags = storedTags;
 			}
 		} else {
+			// Handle the case where local storage is not available
+			let tags = tags;
+
+			// Save the tags array to local storage
 			localStorage.setItem('tags', JSON.stringify(tags));
 			return tags;
 		}
@@ -65,12 +71,14 @@
 		const input = document.getElementById('add-tag-input');
 		const value = input.value.trim();
 
-		// Check for Input
+		//Chec
 		if (
 			value !== '' &&
 			(e.key === 'Enter' || e.type === 'click')
 		) {
+			// Check if the tag already exists in the array
 			if (!tags.includes(value)) {
+				// If it doesn't, add it to the array of tags
 				tags = [...tags, value];
 				input.value = '';
 				tags.sort((a, b) => a.localeCompare(b));
@@ -88,9 +96,9 @@
 	}
 
 	const resetTags = () => {
-		tags = [...defaultTags];
-		localStorage.setItem('tags', JSON.stringify(tags));
-	};
+    tags = [...defaultTags];
+    localStorage.setItem('tags', JSON.stringify(tags));
+};
 </script>
 
 <body

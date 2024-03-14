@@ -48,6 +48,10 @@
 				tags = storedTags;
 			}
 		} else {
+			// Handle the case where local storage is not available
+			let tags = tags;
+
+			// Save the tags array to local storage
 			localStorage.setItem('tags', JSON.stringify(tags));
 			return tags;
 		}
