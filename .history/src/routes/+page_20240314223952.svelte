@@ -235,11 +235,11 @@
 	}
 
 	ul::-webkit-scrollbar {
-		width: 1px;
+		width: 10px;
 		height: 0px;
 	}
 
 	ul::-webkit-scrollbar-thumb {
-		background-image: linear-gradient(135deg, #31024c 0%, #f2189e 100%);
+		background-image: linear-gradient(;
 	}
 </style>

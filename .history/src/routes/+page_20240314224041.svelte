@@ -235,7 +235,7 @@
 	}
 
 	ul::-webkit-scrollbar {
-		width: 1px;
+		width: 4px;
 		height: 0px;
 	}
 

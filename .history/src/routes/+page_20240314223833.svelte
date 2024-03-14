@@ -240,6 +240,6 @@
 	}
 
 	ul::-webkit-scrollbar-thumb {
-		background-image: linear-gradient(135deg, #31024c 0%, #f2189e 100%);
+		background-color: hsla(268, 95%, 42%, 0.332);
 	}
 </style>

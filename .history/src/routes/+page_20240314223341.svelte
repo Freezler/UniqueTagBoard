@@ -53,18 +53,19 @@
 		}
 	});
 
-	function handleDuplicate() {
+	function handleDuplicate(e) {
     const bg = document.querySelector('#add-tag-input');
-    bg.classList.add('border-red-600');
+    in.classList.add('border-red-600');
     console.log('no duplicate tags please');
     alert('no duplicate tags please');
-   
+    return bg;
 }
 
 	function addItem(e) {
 		const input = document.getElementById('add-tag-input');
 		const value = input.value.trim();
 
+		// Check for Input
 		if (
 			value !== '' &&
 			(e.key === 'Enter' || e.type === 'click')
@@ -75,10 +76,9 @@
 				tags.sort((a, b) => a.localeCompare(b));
 			} else {
 				handleDuplicate();
-				input.classList.add('border-red-600');
 			}
 			input.value = '';
-			input.classList.remove('border-red-600');
+			input.classList.remove('border-red-600'); //togg = 'red';
 		}
 		localStorage.setItem('tags', JSON.stringify(tags));
 	}
@@ -240,6 +240,6 @@
 	}
 
 	ul::-webkit-scrollbar-thumb {
-		background-image: linear-gradient(135deg, #31024c 0%, #f2189e 100%);
+		background-color: hsla(268, 95%, 42%, 0.332);
 	}
 </style>

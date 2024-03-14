@@ -53,18 +53,19 @@
 		}
 	});
 
-	function handleDuplicate() {
-    const bg = document.querySelector('#add-tag-input');
-    bg.classList.add('border-red-600');
-    console.log('no duplicate tags please');
-    alert('no duplicate tags please');
-   
-}
+	function handleDuplicate(e) {
+		const bg = document.querySelector('#add-tag-input');
+		input.classList.add('border-red-600'); //togg = 'red';
+		console.log('no duplicate tags please');
+		alert('no duplicate tags please');
+		return bg;
+	}
 
 	function addItem(e) {
 		const input = document.getElementById('add-tag-input');
 		const value = input.value.trim();
 
+		// Check for Input
 		if (
 			value !== '' &&
 			(e.key === 'Enter' || e.type === 'click')
@@ -75,10 +76,9 @@
 				tags.sort((a, b) => a.localeCompare(b));
 			} else {
 				handleDuplicate();
-				input.classList.add('border-red-600');
 			}
 			input.value = '';
-			input.classList.remove('border-red-600');
+			input.classList.remove('border-red-600'); //togg = 'red';
 		}
 		localStorage.setItem('tags', JSON.stringify(tags));
 	}
@@ -123,7 +123,7 @@
 		<label for="add-tag-input" class="tag-input">
 			<ul
 				use:autoAnimate={{
-					duration: 300,
+					duration: 600,
 					easing: 'ease-in-out'
 				}}
 				class="overflow-scroll flex flex-row flex-wrap items-center justify-around w-[85vw] bg-pink-950/5 gap-4 h-[50vh] p-2 border-[1px] border-[hsla(187,45%,84%,1)] rounded-xl"
@@ -183,8 +183,8 @@
 
 <style>
 	button {
-		background-color: var(--btn-bg-color);
-		box-shadow: 0 0 5px rgba(3, 77, 81, 0.533), 0 0 25px rgba(3, 77, 81, 0.533), 0 0 50px rgba(3, 77, 81, 0.533) 0 0 100px rgba(3, 77, 81, 0.533);
+		background-color: blueviolet;
+		box-shadow: 0 0 5px rgba(3, 77, 81, 0.533), 0 0 25px rgba(3, 77, 81, 0.533), 0 0 50px #ab0, 0 0 100px #ab0;
 	}
 
 	
@@ -196,10 +196,10 @@
 	}
 
 	button:hover {
-		
-		background-color: rgba(102, 5, 122, 0.933);
-		box-shadow: 0 0 8px #ab0, 0 0 16px rgb(122, 175, 241), 0 0 24px rgb(122, 175, 241), 0 0 48px rgb(122, 175, 241);
-		transition: all 0.3s ease-in-out;
+		scale: 1.02;
+		background-color: #e63aaf;
+		box-shadow: 0 0 5px #ab0, 0 0 25px rgb(122, 175, 241), 0 0 50px rgb(122, 175, 241), 0 0 100px rgb(122, 175, 241);
+		transition: all 0.7s ease-in-out;
 	}
 	
 
@@ -219,7 +219,7 @@
 		padding: 0.5rem;
 		background-color: var(--bg-color);
 		box-shadow: 0 4rem 1rem 5rem var(--bg-color);
-		transition: all 0.3s ease-in-out;
+		transition: all 0.2s ease-in-out;
 	}
 	ul {
 		border-image: linear-gradient(
@@ -240,6 +240,6 @@
 	}
 
 	ul::-webkit-scrollbar-thumb {
-		background-image: linear-gradient(135deg, #31024c 0%, #f2189e 100%);
+		background-color: hsla(268, 95%, 42%, 0.332);
 	}
 </style>
