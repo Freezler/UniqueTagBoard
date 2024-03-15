@@ -1,7 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
 	import autoAnimate from '@formkit/auto-animate';
-	import { fade } from 'svelte/transition';
 
 	//   Define an array of tags
 	let defaultTags = [
@@ -137,7 +136,7 @@
 							{tag}
 						</li>
 						<span
-							class=" h-[40px] box-border bg-blue-500 text-center justify-center align-middle text-[var(--text-color)] rounded-tr-[0.25rem] rounded-br-[0.25rem] w-[24px] border-[1px] border-[hsla(187,45%,84%,1)] font-[32px]"
+							class=" h-[40px] box-border bg-blue-500 text-center justify-center align-middle text-[var(--text-color)] rounded-tr-[0.25rem] rounded-br-[0.25rem] w-[24px] border-[1px] border-[hsla(187,45%,84%,1)] fon["
 							tabindex="0"
 							role="button"
 							on:click={() => remove(tag)}
@@ -150,7 +149,7 @@
 			</ul>
 
 			<div
-				class="flex items-center box-border mt-8 h-[40px] rounded-xl"
+				class="flex items-center box-border mt-8 h-[60px] rounded-xl"
 			>
 				<input
 					class="pl-2 h-[40px] bg-[var(--btn-bg-color)] text-[var(--text-color)] m-[5px] box-border"
@@ -164,6 +163,7 @@
 					class="pl-2 pr-2 h-[40px] bg-[var(--btn-bg-color)] text-[var(--text-color)] m-[5px] box-border rounded-md"
 					type="button"
 					name="add-tag-submit"
+					tabindex="0"
 					aria-label="Add tag"
 					id="add-tag-submit"
 					on:keydown={(e) => e.key === 'Enter' && addItem()}

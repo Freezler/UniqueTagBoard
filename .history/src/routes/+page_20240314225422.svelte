@@ -95,7 +95,7 @@
 </script>
 
 <body
-	class="grid bg-slate-950 h-[100vh] w-[100vw] overflow-scroll-smooth"
+	class="grid bg-slate-950 h-[100vh] w-[100vw] overflow-scroll-smooth fade"
 >
 	<header
 		class="grid place-items-center grid-cols-1 grid-rows-1 pb-6 bg-slate-900 text-center"
@@ -150,7 +150,7 @@
 			</ul>
 
 			<div
-				class="flex items-center box-border mt-8 h-[40px] rounded-xl"
+				class="flex items-center box-border mt-8 h-[60px] rounded-xl"
 			>
 				<input
 					class="pl-2 h-[40px] bg-[var(--btn-bg-color)] text-[var(--text-color)] m-[5px] box-border"

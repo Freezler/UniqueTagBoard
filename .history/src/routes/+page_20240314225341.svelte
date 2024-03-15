@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import autoAnimate from '@formkit/auto-animate';
-	import { fade } from 'svelte/transition';
+	import 
 
 	//   Define an array of tags
 	let defaultTags = [
@@ -150,7 +150,7 @@
 			</ul>
 
 			<div
-				class="flex items-center box-border mt-8 h-[40px] rounded-xl"
+				class="flex items-center box-border mt-8 h-[60px] rounded-xl"
 			>
 				<input
 					class="pl-2 h-[40px] bg-[var(--btn-bg-color)] text-[var(--text-color)] m-[5px] box-border"
