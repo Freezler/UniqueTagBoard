@@ -1,7 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
 	import autoAnimate from '@formkit/auto-animate';
-	import { fade } from 'svelte/transition';
 
 	//   Define an array of tags
 	let defaultTags = [
@@ -55,12 +54,11 @@
 	});
 
 	function handleDuplicate() {
-    const bg = document.querySelector('#add-tag-input');
-    bg.classList.add('border-red-600');
-    console.log('no duplicate tags please');
-    alert('no duplicate tags please');
-   
-}
+		const bg = document.querySelector('#add-tag-input');
+		bg.classList.add('border-red-600');
+		console.log('no duplicate tags please');
+		alert('no duplicate tags please');
+	}
 
 	function addItem(e) {
 		const input = document.getElementById('add-tag-input');
@@ -122,32 +120,40 @@
 		class="smooth-scroll bg-slate-900 flex flex-col m-0 mt-0 w-[100vw] h-[100v%]"
 	>
 		<label for="add-tag-input" class="tag-input">
-			<ul
+			<div
 				use:autoAnimate={{
 					duration: 300,
 					easing: 'ease-in-out'
 				}}
-				class="overflow-scroll flex flex-row flex-wrap items-center justify-around w-[85vw] bg-pink-950/5 gap-4 h-[50vh] p-2 border-[1px] border-[hsla(187,45%,84%,1)] rounded-xl"
+				class="overflow-scroll flex flex-row flex-wrap items-center justify-around w-[85vw] bg-slate-950/5 gap-4 h-[50vh] p-2 border-[1px] border-[hsla(187,45%,84%,1)] rounded-xl"
 			>
 				{#each tags as tag, index (tag)}
-					<div class="flex items-center align-middle gap-0">
-						<li
-							class="justify-center align-middle h-[40px] bg-[var(--btn-bg-color)] rounded-tl-[0.25rem] rounded-bl-[0.25rem] text-[var(--text-color)] pl-2 pr-2 border-[1px] border-[hsla(187,45%,84%,1)]"
-						>
-							{tag}
-						</li>
-						<span
-							class=" h-[40px] box-border bg-blue-500 text-center justify-center align-middle text-[var(--text-color)] rounded-tr-[0.25rem] rounded-br-[0.25rem] w-[32px] border-[1px] border-[hsla(187,45%,84%,1)] font-[32px] place-content-center"
-							tabindex="0"
-							role="button"
-							on:click={() => remove(tag)}
-							on:keydown={(e) =>
-								e.key === 'Enter' && remove(tag)}
-							>&times;</span
+					<div
+						id="gradient"
+						class="bg-transparent p-1 grid rounded-full text-center items-center"
+					>
+						<button
+							class="text-white hover:bg-gray-100 text-center font-semibold py-1 px-1 border-2 rounded-3xl border-gray-400 shadow grid-cols-[1fr_32px] grid place-items-center text-lg pl-3 pr-2"
+							>{tag}
+							<svg
+								class="relative place-self-end place-items-center px] bottom-[10px] w-3 fill-none stroke-width-3 stroke-[hsla(187,45%,84%,1)]"
+								viewBox="0 0 12 12"
+								xmlns="http://www.w3.org/2000/svg"
+								role="button"
+								tabindex="0"
+								aria-label="Remove tag"
+								on:click={() => remove(tag)}
+								on:keydown={(e) =>
+									e.key === 'Enter' && remove(tag)}
+								><path
+									d="M6.52813 5.9999L11.4781 10.9499L10.9531 11.4749L6.00313 6.5249L1.05313 11.4749L0.528125 10.9499L5.47813 5.9999L0.453125 1.0499L0.978125 0.524902L5.92813 5.4749L10.8781 0.524902L11.4031 1.0499L6.52813 5.9999Z"
+									fill="black"
+								></path></svg
+							></button
 						>
 					</div>
 				{/each}
-			</ul>
+			</div>
 
 			<div
 				class="flex items-center box-border mt-8 h-[40px] rounded-xl"
@@ -184,10 +190,13 @@
 <style>
 	button {
 		background-color: var(--btn-bg-color);
-		box-shadow: 0 0 5px rgba(3, 77, 81, 0.533), 0 0 25px rgba(3, 77, 81, 0.533), 0 0 50px rgba(3, 77, 81, 0.533) 0 0 100px rgba(3, 77, 81, 0.533);
+		box-shadow:
+			0 0 5px rgba(3, 77, 81, 0.533),
+			0 0 25px rgba(3, 77, 81, 0.533),
+			0 0 50px rgba(3, 77, 81, 0.533) 0 0 100px
+				rgba(3, 77, 81, 0.533);
 	}
 
-	
 	button:active {
 		box-shadow:
 			inset -2px -2px 3px rgba(255, 255, 255, 0.6),
@@ -196,12 +205,15 @@
 	}
 
 	button:hover {
-		
-		background-color: rgba(102, 5, 122, 0.933);
-		box-shadow: 0 0 8px #ab0, 0 0 16px rgb(122, 175, 241), 0 0 24px rgb(122, 175, 241), 0 0 48px rgb(122, 175, 241);
-		transition: all 0.3s ease-in-out;
+		background-color: rgba(71, 4, 85, 0.482);
+		box-shadow:
+			0 0 8px #ab0,
+			0 0 16px rgb(122, 175, 241),
+			0 0 24px rgb(122, 175, 241),
+			0 0 48px rgb(122, 175, 241);
+		transition: all 0.5s ease-out;
+		scale: 1.05;
 	}
-	
 
 	:root {
 		--text-color: hsla(300, 29%, 97%, 0.84);
@@ -221,7 +233,7 @@
 		box-shadow: 0 4rem 1rem 5rem var(--bg-color);
 		transition: all 0.3s ease-in-out;
 	}
-	ul {
+	div {
 		border-image: linear-gradient(
 			135deg,
 			rgb(169, 82, 157) 0%,
@@ -234,12 +246,27 @@
 		border-radius: var(--border-radius);
 	}
 
-	ul::-webkit-scrollbar {
+	div::-webkit-scrollbar {
 		width: 1px;
 		height: 0px;
 	}
 
-	ul::-webkit-scrollbar-thumb {
-		background-image: linear-gradient(135deg, #31024c 0%, #f2189e 100%);
+	div::-webkit-scrollbar-thumb {
+		background-image: linear-gradient(
+			135deg,
+			#31024c 0%,
+			#f2189e 100%
+		);
+	}
+	#gradient {
+		background: rgb(63, 94, 251);
+		background: linear-gradient(
+			90deg,
+			rgba(63, 94, 251, 1) 0%,
+			rgba(252, 70, 107, 1) 100%
+		);
+		border-radius: 30px;
+		margin: 0;
+		padding: 1px;
 	}
 </style>
