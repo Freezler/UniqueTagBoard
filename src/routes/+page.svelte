@@ -93,18 +93,18 @@
 </script>
 
 <body
-	class="grid bg-slate-950 h-[calc(100vh-window.offsetHeight)] w-[100vw] overflow-scroll-smooth transition-all duration-300"
+	class="grid h-[100vh] w-[100vw] overflow-scroll-smooth transition-all duration-300 select-none"
 >
 	<header
-		class="grid place-items-center grid-cols-1 grid-rows-1 pb-6 bg-slate-900 text-center"
+		class="grid place-items-center grid-cols-1 grid-rows-1 pb-6 bg-slate-950 text-center"
 	>
 		<h1
-			class="text-5xl font-semibold p-2 uppercase text-[hsla(187,45%,84%,1)] text-center mb-1"
+			class="text-5xl font-semibold p-2 uppercase text-[hsla(187,45%,84%,1)] text-center mt-2"
 		>
 			Unique Tag Board
 		</h1>
 		<p
-			class="text-[16px] text-[hsla(187,45%,84%,1)] font-normal w-[45ch] text-pretty text-center mb-1"
+			class="text-[20px] text-[hsla(187,45%,84%,1)] font-normal w-[45ch] text-pretty text-center "
 		>
 			A project built with <a href="https://kit.svelte.dev"
 				>Svelte Kit</a
@@ -117,7 +117,7 @@
 		</p>
 	</header>
 	<section
-		class="smooth-scroll bg-slate-900 flex flex-col m-0 mt-0 w-[100vw] h-[100v%]"
+		class="smooth-scroll bg-slate-950 flex flex-col m-0 mt-0 w-[100vw] h-[100v%]"
 	>
 		<label for="add-tag-input" class="tag-input">
 			<div
@@ -125,18 +125,18 @@
 					duration: 300,
 					easing: 'ease-in-out'
 				}}
-				class="overflow-scroll flex flex-row flex-wrap items-center justify-around w-[85vw] bg-slate-950/5 gap-4 h-[50vh] p-4 border-[1px] border-[hsla(187,45%,84%,1)] rounded-xl"
+				class="overflow-scroll flex flex-row flex-wrap items-center justify-around w-[88vw] bg-slate-950/5 gap-4 h-[64vh] p-4 border-[4px]  rounded-xl"
 			>
 				{#each tags as tag, index (tag)}
 					<div
 						id="gradient"
-						class="bg-transparent grid rounded-full text-center items-center"
+						class="bg-transparent grid select-none rounded-full text-center items-center"
 					>
 						<button
 							class="text-white hover:bg-gray-100 text-center font-semibold py-1 justify-between px-1 border-[1px] rounded-3xl border-gray-400 shadow grid-cols-[1fr_40px] grid place-items-center text-lg pl-3 "
 							><p class="text-[hsla(187,45%,84%,1)] -translate-y-[0px]">{tag}</p>
 							<svg
-								class=" place-self-center justify-self-end mr-2  h-[18px] w-[16px] fill-none stroke-width-3 stroke-[hsla(187,45%,84%,1)]"
+								class="select-none place-self-center justify-self-end mr-2  h-[18px] w-[16px] fill-none stroke-width-3 stroke-[hsla(187,45%,84%,1)]"
 								viewBox="0 0 12 12"
 								xmlns="http://www.w3.org/2000/svg"
 								role="button"
@@ -217,8 +217,8 @@
 
 	:root {
 		--text-color: hsl(208, 52%, 90%);
-		--bg-color: hsla(278, 85%, 3%, 0.714);
-		--btn-bg-color: #074e5a;
+		--bg-color: hsla(275, 89%, 4%, 0.714);
+		--btn-bg-color: #08075aaf;
 		--border-radius: 0.47rem;
 	}
 
@@ -240,7 +240,7 @@
 			rgb(16, 99, 110) 50%,
 			rgb(17, 36, 1) 100%
 		);
-		transition: transform 0.2s ease-in-out;
+		transition: transform 0.9s ease-in-out;
 		border-image-slice: 1;
 		border-color: transparent;
 		border-radius: var(--border-radius);
@@ -267,11 +267,13 @@
 		);
 		border-radius: 32px;
 		margin: 0;
-		padding: 2.5px;
+		padding: 2px;
+		
 	}
 
 	svg:hover {
 		transform: rotate(90deg);
 		transition: transform 0.3s ease-in-out;
+		outline: none;
 	}
 </style>
