@@ -125,18 +125,18 @@
 					duration: 300,
 					easing: 'ease-in-out'
 				}}
-				class="overflow-scroll flex flex-row flex-wrap items-center justify-around w-[85vw] bg-slate-950/5 gap-4 h-[50vh] p-2 border-[1px] border-[hsla(187,45%,84%,1)] rounded-xl"
+				class="overflow-scroll flex flex-row flex-wrap items-center justify-around w-[85vw] bg-slate-950/5 gap-4 h-[50vh] p-8 border-[1px] border-[hsla(187,45%,84%,1)] rounded-xl"
 			>
 				{#each tags as tag, index (tag)}
 					<div
 						id="gradient"
-						class="bg-transparent p-1 grid rounded-full text-center items-center"
+						class="bg-transparent grid rounded-full text-center items-center"
 					>
 						<button
-							class="text-white hover:bg-gray-100 text-center font-semibold py-1 px-1 border-2 rounded-3xl border-gray-400 shadow grid-cols-[1fr_32px] grid place-items-center text-lg pl-3 pr-2"
+							class="text-white hover:bg-gray-100 text-center font-semibold py-1 justify-between px-1 border-[1px] rounded-3xl border-gray-400 shadow grid-cols-[1fr_40px] grid place-items-center text-lg pl-3"
 							>{tag}
 							<svg
-								class="relative place-self-end place-items-center px] bottom-[10px] w-3 fill-none stroke-width-3 stroke-[hsla(187,45%,84%,1)]"
+								class=" place-self-center justify-self-end mr-2 h-[18px] w-[16px] fill-none stroke-width-3 stroke-[hsla(187,45%,84%,1)]"
 								viewBox="0 0 12 12"
 								xmlns="http://www.w3.org/2000/svg"
 								role="button"
@@ -211,7 +211,7 @@
 			0 0 16px rgb(122, 175, 241),
 			0 0 24px rgb(122, 175, 241),
 			0 0 48px rgb(122, 175, 241);
-		transition: all 0.5s ease-out;
+		transition: all 0.3s ease-out;
 		scale: 1.05;
 	}
 
@@ -265,8 +265,13 @@
 			rgba(63, 94, 251, 1) 0%,
 			rgba(252, 70, 107, 1) 100%
 		);
-		border-radius: 30px;
+		border-radius: 32px;
 		margin: 0;
-		padding: 1px;
+		padding: 4px;
+	}
+
+	svg:hover {
+		transform: rotate(90deg);
+		transition: transform 0.3s ease-in-out;
 	}
 </style>
