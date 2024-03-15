@@ -134,7 +134,7 @@
 					>
 						<button
 							class="text-white hover:bg-gray-100 text-center font-semibold py-1 justify-between px-1 border-[1px] rounded-3xl border-gray-400 shadow grid-cols-[1fr_40px] grid place-items-center text-lg pl-3 "
-							><p class="text-[hsla(187,45%,84%,1)] -translate-y-[1px]">{tag}</p>
+							><p class="text-[hsla(187,45%,84%,1)] -translate-y-[0px]">{tag}</p>
 							<svg
 								class=" place-self-center justify-self-end mr-2  h-[18px] w-[16px] fill-none stroke-width-3 stroke-[hsla(187,45%,84%,1)]"
 								viewBox="0 0 12 12"
