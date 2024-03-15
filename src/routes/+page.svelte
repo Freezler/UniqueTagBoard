@@ -93,18 +93,18 @@
 </script>
 
 <body
-	class="grid bg-slate-950 h-[100vh] w-[100vw] overflow-scroll-smooth"
+	class="grid bg-slate-950 h-[calc(100vh-window.offsetHeight)] w-[100vw] overflow-scroll-smooth transition-all duration-300"
 >
 	<header
 		class="grid place-items-center grid-cols-1 grid-rows-1 pb-6 bg-slate-900 text-center"
 	>
 		<h1
-			class="text-3xl font-semibold p-2 uppercase text-[hsla(187,45%,84%,1)] text-center mb-1"
+			class="text-5xl font-semibold p-2 uppercase text-[hsla(187,45%,84%,1)] text-center mb-1"
 		>
 			Unique Tag Board
 		</h1>
 		<p
-			class="text-[16px] text-[hsla(187,45%,84%,1)] font-normal w-[32ch] text-pretty text-center mb-4"
+			class="text-[16px] text-[hsla(187,45%,84%,1)] font-normal w-[45ch] text-pretty text-center mb-1"
 		>
 			A project built with <a href="https://kit.svelte.dev"
 				>Svelte Kit</a
@@ -133,10 +133,10 @@
 						class="bg-transparent grid rounded-full text-center items-center"
 					>
 						<button
-							class="text-white hover:bg-gray-100 text-center font-semibold py-1 justify-between px-1 border-[1px] rounded-3xl border-gray-400 shadow grid-cols-[1fr_40px] grid place-items-center text-lg pl-3"
-							>{tag}
+							class="text-white hover:bg-gray-100 text-center font-semibold py-1 justify-between px-1 border-[1px] rounded-3xl border-gray-400 shadow grid-cols-[1fr_40px] grid place-items-center text-lg pl-3 "
+							><p class="text-[hsla(187,45%,84%,1)] -translate-y-[1px]">{tag}</p>
 							<svg
-								class=" place-self-center justify-self-end mr-2 h-[18px] w-[16px] fill-none stroke-width-3 stroke-[hsla(187,45%,84%,1)]"
+								class=" place-self-center justify-self-end mr-2  h-[18px] w-[16px] fill-none stroke-width-3 stroke-[hsla(187,45%,84%,1)]"
 								viewBox="0 0 12 12"
 								xmlns="http://www.w3.org/2000/svg"
 								role="button"
@@ -159,7 +159,7 @@
 				class="flex items-center box-border mt-8 h-[40px] rounded-xl"
 			>
 				<input
-					class="pl-2 h-[40px] bg-[var(--btn-bg-color)] text-[var(--text-color)] m-[5px] box-border"
+					class="rounded-[var(--border-radius)] border-[1px] pl-2 h-[40px] bg-[var(--btn-bg-color)] text-[var(--text-color)] m-[5px] box-border"
 					id="add-tag-input"
 					type="text"
 					placeholder="Add a tag..."
@@ -216,7 +216,7 @@
 	}
 
 	:root {
-		--text-color: hsla(300, 29%, 97%, 0.84);
+		--text-color: hsl(208, 52%, 90%);
 		--bg-color: hsla(278, 85%, 3%, 0.714);
 		--btn-bg-color: #074e5a;
 		--border-radius: 0.47rem;
@@ -238,7 +238,7 @@
 			135deg,
 			rgb(169, 82, 157) 0%,
 			rgb(16, 99, 110) 50%,
-			rgb(11, 1, 36) 100%
+			rgb(17, 36, 1) 100%
 		);
 		transition: transform 0.2s ease-in-out;
 		border-image-slice: 1;
@@ -267,7 +267,7 @@
 		);
 		border-radius: 32px;
 		margin: 0;
-		padding: 4px;
+		padding: 2.5px;
 	}
 
 	svg:hover {
