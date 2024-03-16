@@ -117,7 +117,7 @@
 		</p>
 	</header>
 	<section
-		class="smooth-scroll bg-slate-950 flex flex-col m-0 mt-0 w-[100vw] h-[100v%]"
+		class="smooth-scroll bg-slate-950 flex flex-col m-0 mt-0 w-[100vw] h-[100vh]"
 	>
 		<label for="add-tag-input" class="tag-input">
 			<div
