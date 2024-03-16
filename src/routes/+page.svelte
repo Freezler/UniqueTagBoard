@@ -107,7 +107,7 @@
 			Unique Tag Board
 		</h1>
 		<p
-			class="text-[16px] text-[hsla(187,45%,84%,1)] font-semibold w-[35ch] text-pretty text-center pb-0"
+			class="text-[16px] text-[hsla(187,45%,84%,1)] font-semibold w-[35ch] text-pretty text-center pb-4"
 		>
 			A project built with <a href="https://kit.svelte.dev"
 				>Svelte Kit</a
@@ -128,7 +128,7 @@
 					duration: 420,
 					easing: 'ease-in-out'
 				}}
-				class="overflow-scroll flex flex-row flex-wrap items-center justify-around w-[88vw] bg-slate-950/5 gap-4 h-[56vh] p-2 border-[4px] rounded-xl"
+				class="overflow-scroll flex flex-row flex-wrap items-center justify-around w-[88vw] bg-slate-950/5 gap-4 h-[48vh] p-4 border-[4px] rounded-xl"
 			>
 				{#each tags as tag, index (tag)}
 					<div
@@ -163,10 +163,10 @@
 			</div>
 
 			<div
-				class="flex items-center box-border mt-4 h-[60px] rounded-xl border-[4px] p-[0px] bg-[var(--btn-bg-color)]"
+				class="flex items-center box-border mt-8 h-[76px] rounded-xl border-[4px] -[4px] bg-[var(--btn-bg-color)]"
 			>
 				<input
-					class="rounded-[var(--border-radius)] border-[1px] pl-2 h-[40px] bg-[var(--btn-bg-color)] text-[var(--text-color)] m-[0px] box-border"
+					class="rounded-[var(--border-radius)] border-[1px] ml-2 p-2 h-[40px] bg-[var(--btn-bg-color)] text-[var(--text-color)] m-[0px] box-border"
 					id="add-tag-input"
 					type="text"
 					placeholder="Add a tag..."
@@ -183,7 +183,7 @@
 					on:click={addItem}>Add</button
 				>
 				<button
-					class=" pl-2 pr-2 h-[40px]
+					class=" pl-2 pr-2 mr-2 h-[40px]
 					bg-[var(--btn-bg-color)] text-[var(--text-color)] box-border rounded-md border-red-600 border-[1px]"
 					on:click={resetTags}
 				>
