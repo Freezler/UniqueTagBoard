@@ -54,10 +54,12 @@
 	});
 
 	function handleDuplicate() {
-		const bg = document.querySelector('#add-tag-input');
-		bg.classList.add('border-red-600');
-		console.log('no duplicate tags please');
-		alert('no duplicate tags please');
+		alert('Tag already exists');
+		tags = [...tags, value];
+		tags.sort((a, b) => a.localeCompare(b));
+		localStorage.setItem('tags', JSON.stringify(tags));
+		input.classList.add('border-red-600');
+		input.value = '';
 	}
 
 	function addItem(e) {
@@ -70,14 +72,15 @@
 		) {
 			if (!tags.includes(value)) {
 				tags = [...tags, value];
+				input.classList.add('border-red-600');
 				input.value = '';
 				tags.sort((a, b) => a.localeCompare(b));
 			} else {
+				input.classList.toggle('border-red-600');
 				handleDuplicate();
-				input.classList.add('border-red-600');
 			}
 			input.value = '';
-			input.classList.remove('border-red-600');
+			input.classList.toggle('border-red-600');
 		}
 		localStorage.setItem('tags', JSON.stringify(tags));
 	}
@@ -96,15 +99,15 @@
 	class="grid h-[100vh] w-[100vw] scroll-none transition-all duration-300 select-none"
 >
 	<header
-		class="grid place-items-center grid-cols-1 grid-rows-[1fr 1fr] bg-slate-950 text-center"
+		class="grid place-items-center grid-cols-1 grid-rows-[1fr 1fr] bg-[var(--bg-color)] text-center"
 	>
 		<h1
-			class="text-3xl font-semibold uppercase text-[hsla(187,45%,84%,1)] text-center "
+			class="text-4xl font-semibold uppercase text-[hsla(187,45%,84%,1)]"
 		>
 			Unique Tag Board
 		</h1>
 		<p
-			class="text-[16px] text-[hsla(187,45%,84%,1)] font-normal w-[35ch] text-pretty text-center pb-1"
+			class="text-[16px] text-[hsla(187,45%,84%,1)] font-semibold w-[35ch] text-pretty text-center pb-0"
 		>
 			A project built with <a href="https://kit.svelte.dev"
 				>Svelte Kit</a
@@ -117,15 +120,15 @@
 		</p>
 	</header>
 	<section
-		class="smooth-scroll bg-pink-100 flex flex-col m-0 mt-0 "
+		class="smooth-scroll bg-pink-100 flex flex-col m-0 mt-0"
 	>
 		<label for="add-tag-input" class="tag-input">
 			<div
 				use:autoAnimate={{
-					duration: 300,
+					duration: 420,
 					easing: 'ease-in-out'
 				}}
-				class="overflow-scroll flex flex-row flex-wrap items-center justify-around w-[88vw] bg-slate-950/5 gap-4 h-[64vh] p-4 border-[4px]  rounded-xl"
+				class="overflow-scroll flex flex-row flex-wrap items-center justify-around w-[88vw] bg-slate-950/5 gap-4 h-[56vh] p-2 border-[4px] rounded-xl"
 			>
 				{#each tags as tag, index (tag)}
 					<div
@@ -133,10 +136,14 @@
 						class="bg-transparent grid select-none rounded-full text-center items-center"
 					>
 						<button
-							class="text-white hover:bg-gray-100 text-center font-semibold py-1 justify-between px-1 border-[1px] rounded-3xl border-gray-400 shadow grid-cols-[1fr_40px] grid place-items-center text-lg pl-3 "
-							><p class="text-[hsla(187,45%,84%,1)] -translate-y-[0px]">{tag}</p>
+							class="text-white hover:bg-gray-100 text-center font-semibold py-1 justify-between px-1 border-[1px] rounded-3xl border-gray-400 shadow grid-cols-[1fr_40px] grid place-items-center text-lg pl-3"
+							><p
+								class="text-[hsla(187,45%,84%,1)] -translate-y-[0px]"
+							>
+								{tag}
+							</p>
 							<svg
-								class="select-none place-self-center justify-self-end mr-2  h-[18px] w-[16px] fill-none stroke-width-3 stroke-[hsla(187,45%,84%,1)]"
+								class="select-none place-self-center justify-self-end mr-2 h-[18px] w-[16px] fill-none stroke-width-3 stroke-[hsla(187,45%,84%,1)]"
 								viewBox="0 0 12 12"
 								xmlns="http://www.w3.org/2000/svg"
 								role="button"
@@ -156,10 +163,10 @@
 			</div>
 
 			<div
-				class="flex items-center box-border mt-8 h-[40px] rounded-xl"
+				class="flex items-center box-border mt-4 h-[60px] rounded-xl border-[4px] p-[0px] bg-[var(--btn-bg-color)]"
 			>
 				<input
-					class="rounded-[var(--border-radius)] border-[1px] pl-2 h-[40px] bg-[var(--btn-bg-color)] text-[var(--text-color)] m-[5px] box-border"
+					class="rounded-[var(--border-radius)] border-[1px] pl-2 h-[40px] bg-[var(--btn-bg-color)] text-[var(--text-color)] m-[0px] box-border"
 					id="add-tag-input"
 					type="text"
 					placeholder="Add a tag..."
@@ -167,7 +174,7 @@
 				/>
 
 				<button
-					class="pl-2 pr-2 h-[40px] bg-[var(--btn-bg-color)] text-[var(--text-color)] m-[5px] box-border rounded-md"
+					class="pl-2 pr-2 h-[40px] text-[var(--text-color)] m-[5px] box-border rounded-md border-lime-600 border-[1px]"
 					type="button"
 					name="add-tag-submit"
 					aria-label="Add tag"
@@ -177,7 +184,7 @@
 				>
 				<button
 					class=" pl-2 pr-2 h-[40px]
-					bg-[var(--btn-bg-color)] text-[var(--text-color)] box-border rounded-md"
+					bg-[var(--btn-bg-color)] text-[var(--text-color)] box-border rounded-md border-red-600 border-[1px]"
 					on:click={resetTags}
 				>
 					Reset
@@ -191,7 +198,7 @@
 	button {
 		background-color: var(--btn-bg-color);
 		box-shadow:
-			0 0 5px rgba(3, 77, 81, 0.533),
+			0 0 5px rgba(213, 219, 220, 0.533),
 			0 0 25px rgba(3, 77, 81, 0.533),
 			0 0 50px rgba(3, 77, 81, 0.533) 0 0 100px
 				rgba(3, 77, 81, 0.533);
@@ -202,24 +209,26 @@
 			inset -2px -2px 3px rgba(255, 255, 255, 0.6),
 			inset 2px 2px 3px rgba(0, 0, 0, 0.6);
 		scale: 0.95;
+		outline: none;
 	}
 
 	button:hover {
 		background-color: rgba(71, 4, 85, 0.482);
 		box-shadow:
-			0 0 8px #ab0,
-			0 0 16px rgb(122, 175, 241),
-			0 0 24px rgb(122, 175, 241),
-			0 0 48px rgb(122, 175, 241);
+			0 0 0px rgb(23, 7, 205),
+			0 0 0px var(--highlight-color),
+			0 0 1px var(--highlight-color),
+			0 0 56px var(--highlight-color);
 		transition: all 0.3s ease-out;
-		scale: 1.05;
+		scale: 1.03;
 	}
 
 	:root {
-		--text-color: hsl(208, 52%, 90%);
+		--text-color: hsl(207, 33%, 99%);
 		--bg-color: hsla(0, 0%, 0%, 1);
 		--btn-bg-color: #08075aaf;
 		--border-radius: 0.47rem;
+		--highlight-color: hsla(173, 55%, 94%, 0.8);
 	}
 
 	.tag-input {
@@ -228,31 +237,26 @@
 		justify-content: center;
 		align-items: center;
 		border-radius: var(--border-radius);
-		
+
 		background-color: var(--bg-color);
 		box-shadow: 0 4rem 1rem 5rem var(--bg-color);
-		transition: box-shadow 0.9s ease-in-out;
+		transition: all 0.9s ease-in-out;
 	}
 	div {
 		border-image: linear-gradient(
 			135deg,
 			#f2189e 0%,
-			 #6650e6 50%,
+			#6650e6 50%,
 			#4e0a76 100%
-		
 		);
 		transition: transform 0.9s ease-in-out;
-		border-image-slice: 3;
+		border-image-slice: 1;
 		border-color: transparent;
-		
-		
 	}
 
 	div::-webkit-scrollbar {
 		width: 4px;
 		height: 0px;
-		
-
 	}
 
 	div::-webkit-scrollbar-thumb {
@@ -260,30 +264,31 @@
 			135deg,
 			#4e0a76 0%,
 			#f2189e 100%
-		
 		);
 		border-radius: 50px;
 	}
+
 	#gradient {
-		background: rgb(63, 94, 251);
+		background: transparent;
 		background: linear-gradient(
 			135deg,
 			rgba(63, 94, 251, 1) 0%,
 			rgba(252, 70, 107, 1) 100%
 		);
-		border-radius: 32px;
+		border-radius: 36px;
 		margin: 0;
 		padding: 1px;
-		
-	}
-	a, h1 {
-		background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-image: linear-gradient(45deg, #f2189e, #6650e6);
 	}
 
+	a,
 	h1 {
-		font-size: 24px;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-image: linear-gradient(
+			45deg,
+			#f2189e,
+			#6650e6
+		);
 	}
 
 	svg:hover {
