@@ -93,18 +93,18 @@
 </script>
 
 <body
-	class="grid h-[100vh] w-[100vw] overflow-scroll-smooth transition-all duration-300 select-none"
+	class="grid h-[100vh] w-[100vw] scroll-none transition-all duration-300 select-none"
 >
 	<header
-		class="grid place-items-center grid-cols-1 grid-rows-1 pb-6 bg-slate-950 text-center"
+		class="grid place-items-center grid-cols-1 grid-rows-[1fr 1fr] bg-slate-950 text-center"
 	>
 		<h1
-			class="text-3xl font-semibold p-2 uppercase text-[hsla(187,45%,84%,1)] text-center mt-2"
+			class="text-3xl font-semibold uppercase text-[hsla(187,45%,84%,1)] text-center "
 		>
 			Unique Tag Board
 		</h1>
 		<p
-			class="text-[16px] text-[hsla(187,45%,84%,1)] font-normal w-[35ch] text-pretty text-center "
+			class="text-[16px] text-[hsla(187,45%,84%,1)] font-normal w-[35ch] text-pretty text-center pb-1"
 		>
 			A project built with <a href="https://kit.svelte.dev"
 				>Svelte Kit</a
@@ -117,7 +117,7 @@
 		</p>
 	</header>
 	<section
-		class="smooth-scroll bg-slate-950 flex flex-col m-0 mt-0 "
+		class="smooth-scroll bg-pink-100 flex flex-col m-0 mt-0 "
 	>
 		<label for="add-tag-input" class="tag-input">
 			<div
@@ -217,7 +217,7 @@
 
 	:root {
 		--text-color: hsl(208, 52%, 90%);
-		--bg-color: hsla(275, 89%, 4%, 0.714);
+		--bg-color: hsla(0, 0%, 0%, 1);
 		--btn-bg-color: #08075aaf;
 		--border-radius: 0.47rem;
 	}
@@ -236,39 +236,54 @@
 	div {
 		border-image: linear-gradient(
 			135deg,
-			rgb(169, 82, 157) 0%,
-			rgb(16, 99, 110) 50%,
-			rgb(17, 36, 1) 100%
+			#f2189e 0%,
+			 #6650e6 50%,
+			#4e0a76 100%
+		
 		);
 		transition: transform 0.9s ease-in-out;
-		border-image-slice: 1;
+		border-image-slice: 3;
 		border-color: transparent;
-		border-radius: var(--border-radius);
+		
+		
 	}
 
 	div::-webkit-scrollbar {
-		width: 1px;
+		width: 4px;
 		height: 0px;
+		
+
 	}
 
 	div::-webkit-scrollbar-thumb {
 		background-image: linear-gradient(
 			135deg,
-			#31024c 0%,
+			#4e0a76 0%,
 			#f2189e 100%
+		
 		);
+		border-radius: 50px;
 	}
 	#gradient {
 		background: rgb(63, 94, 251);
 		background: linear-gradient(
-			90deg,
+			135deg,
 			rgba(63, 94, 251, 1) 0%,
 			rgba(252, 70, 107, 1) 100%
 		);
 		border-radius: 32px;
 		margin: 0;
-		padding: 2px;
+		padding: 1px;
 		
+	}
+	a, h1 {
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-image: linear-gradient(45deg, #f2189e, #6650e6);
+	}
+
+	h1 {
+		font-size: 24px;
 	}
 
 	svg:hover {
