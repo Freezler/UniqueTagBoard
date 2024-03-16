@@ -99,12 +99,12 @@
 		class="grid place-items-center grid-cols-1 grid-rows-1 pb-6 bg-slate-950 text-center"
 	>
 		<h1
-			class="text-5xl font-semibold p-2 uppercase text-[hsla(187,45%,84%,1)] text-center mt-2"
+			class="text-3xl font-semibold p-2 uppercase text-[hsla(187,45%,84%,1)] text-center mt-2"
 		>
 			Unique Tag Board
 		</h1>
 		<p
-			class="text-[20px] text-[hsla(187,45%,84%,1)] font-normal w-[45ch] text-pretty text-center "
+			class="text-[16px] text-[hsla(187,45%,84%,1)] font-normal w-[35ch] text-pretty text-center "
 		>
 			A project built with <a href="https://kit.svelte.dev"
 				>Svelte Kit</a
@@ -117,7 +117,7 @@
 		</p>
 	</header>
 	<section
-		class="smooth-scroll bg-slate-950 flex flex-col m-0 mt-0 w-[100vw] h-[100vh]"
+		class="smooth-scroll bg-slate-950 flex flex-col m-0 mt-0 "
 	>
 		<label for="add-tag-input" class="tag-input">
 			<div
@@ -228,10 +228,10 @@
 		justify-content: center;
 		align-items: center;
 		border-radius: var(--border-radius);
-		padding: 0.5rem;
+		
 		background-color: var(--bg-color);
 		box-shadow: 0 4rem 1rem 5rem var(--bg-color);
-		transition: all 0.3s ease-in-out;
+		transition: box-shadow 0.9s ease-in-out;
 	}
 	div {
 		border-image: linear-gradient(
