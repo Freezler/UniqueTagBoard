@@ -145,7 +145,7 @@
 					duration: 420, // animation duration in milliseconds
 					easing: 'ease-in-out', // animation easing
 					delay: 0, // animation delay in milliseconds
-					direction: 'alternate', // whether the animation should only play once
+					direction: 'alternate' // whether the animation should only play once
 				}}
 				class="overflow-scroll flex flex-row flex-wrap items-center justify-around w-[88vw] gap-2 h-[44vh] p-4 border-[4px]"
 			>
@@ -213,7 +213,7 @@
 					on:click={clearBoard}>Clear Board</button
 				>
 			</div>
-			<h3>number of tags on your board {tagCount}</h3>
+			<h3 class="pb-2">number of tags on your board {tagCount}</h3>
 		</label>
 	</section>
 </body>
@@ -242,7 +242,7 @@
 		box-shadow:
 			inset -2px -2px 3px rgba(255, 255, 255, 0.6),
 			inset 2px 2px 3px rgba(0, 0, 0, 0.6);
-		scale: 0.95;
+		padding-bottom: 16px;
 		outline: none;
 	}
 
@@ -254,6 +254,7 @@
 			0 0 28px var(--highlight-color),
 			0 0 76px var(--highlight-color);
 		transition: all 0.1s ease-out;
+		scale: 1.02;
 	}
 
 	div {
@@ -330,7 +331,9 @@
 		transition: all 0.9s ease-in-out;
 	}
 
-	svg, path {
-		transition: all 0.6s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+	svg,
+	path {
+		transition: all 0.6s
+			cubic-bezier(0.95, 0.05, 0.795, 0.035);
 	}
 </style>
