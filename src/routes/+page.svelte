@@ -145,7 +145,7 @@
 					duration: 420,
 					easing: 'ease-in-out'
 				}}
-				class="overflow-scroll flex flex-row flex-wrap items-center justify-around w-[88vw] bg-slate-950/5 gap-4 h-[48vh] p-4 border-[4px] rounded-xl"
+				class="overflow-scroll flex flex-row flex-wrap items-center justify-around w-[88vw] bg-slate-950/5 gap-2 h-[44vh] p-4 border-[4px] rounded-xl"
 			>
 				{#each tags as tag, index (tag)}
 					<div
