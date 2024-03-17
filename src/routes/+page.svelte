@@ -180,7 +180,7 @@
 			</div>
 
 			<div
-				class="flex items-center justify-center flex-wrap box-border pt-4 mb-2 mt-8 h-[148px] rounded-xl border-[3px]  w-[88vw] sm:w-[80vw] md:w-[420px] lg:w-[500px] border-[hsla(187,45%,84%,1)]"
+				class="flex items-center justify-center flex-wrap box-border pt-3 mb-2 mt-8 h-[138px] rounded-xl border-[3px]  w-[88vw] sm:w-[80vw] md:w-[420px] lg:w-[420px] border-[hsla(187,45%,84%,1)]"
 			>
 				<input
 					class="rounded-[var(--border-radius)] border-[1px] w-[50%] ml-2 pl-2 h-[40px] text-[var(--text-color)] m-[0px] box-border"
@@ -191,7 +191,7 @@
 				/>
 
 				<button
-					class="pl-2 pr-2 h-[40px] text-[var(--text-color)] m-[5px] box-border rounded-md border-lime-600 border-[1px]"
+					class="pl-2 pr-2 h-[40px] text-[var(--text-color)] m-[8px] box-border rounded-md border-lime-600 border-[1px]"
 					type="button"
 					name="add-tag-submit"
 					aria-label="Add tag"
@@ -200,7 +200,7 @@
 					on:click={addItem}>Add</button
 				>
 				<button
-					class=" pl-2 pr-2 mr-2 h-[40px]
+					class=" pl-2 pr-2  h-[40px]
 					bg-[var(--btn-bg-color)] text-[var(--text-color)] box-border rounded-md border-red-600 border-[1px]"
 					on:click={resetTags}
 				>
