@@ -137,7 +137,7 @@
 		</p>
 	</header>
 	<section
-		class="smooth-scroll flex flex-col m-0 mt-0 w-[100%]"
+		class="smooth-scroll flex flex-col m-0 mt-0 w-[100%] bg-transparent"
 	>
 		<label for="add-tag-input" class="tag-input">
 			<div
@@ -182,10 +182,10 @@
 			</div>
 
 			<div
-				class="flex items-center justify-center flex-wrap box-border pt-2 mb-2 mt-8 h-[138px] rounded-[var(--border-radius)] border-[3px] w-[88vw] sm:w-[80vw] md:w-[420px] lg:w-[420px] border-[hsla(187,45%,84%,1)] text-[var(--text-color)]"
+				class="flex items-center justify-center flex-wrap box-border  mb-2 mt-6 h-[156px] rounded-[var(--border-radius)] border-[4px] w-[88vw] sm:w-[88vw] md:w-[420px] lg:w-[420px] border-[hsla(187,45%,84%,1)] text-[var(--text-color)] pt-4 px-4 sm:px-8 md:px-0 md:mb-4"
 			>
 				<input
-					class="rounded-[var(--border-radius)] border-[1px] lowercase text-xs w-[50%] ml-2 pl-2 h-[40px] text-[var(--input-color)] m-[0px] box-border"
+					class="rounded-[var(--border-radius)] border-[1px] text-xs w-[50%]  pl-2 h-[40px] text-[var(--input-color)] m-[0px] box-border"
 					id="add-tag-input"
 					type="text"
 					placeholder="Add a tag..."
@@ -209,7 +209,7 @@
 					Reset
 				</button>
 				<button
-					class="pl-2 pr-2 h-[40px] mb-16 text-[var(--text-color)] m-[5px] box-border rounded-[var(--border-radius)] border-purple-600 border-[2px]"
+					class="pl-2 pr-2 h-[40px] mb-16 text-[var(--text-color)] box-border rounded-[var(--border-radius)] border-purple-600 border-[2px]"
 					on:click={clearBoard}>Clear Board</button
 				>
 			</div>
@@ -326,8 +326,6 @@
 		justify-content: center;
 		align-items: center;
 		border-radius: var(--border-radius);
-		max-width: inherit;
-
 		transition: all 0.9s ease-in-out;
 	}
 
