@@ -41,8 +41,8 @@
 	let tagCount = 0; // Initialize tagCount
 
 	const updateTagCount = () => {
-    tagCount = tags.length;
-  };
+		tagCount = tags.length;
+	};
 
 	onMount(() => {
 		if (localStorage) {
@@ -109,22 +109,22 @@
 	const clearBoard = () => {
 		tags = [];
 		tagCount = tags.length;
-	}
+	};
 </script>
 
 <body
-	class="grid h-[100vh]  scroll-none transition-all duration-300 select-none"
+	class="grid h-[100vh] scroll-none transition-all duration-300 select-none"
 >
 	<header
-		class="grid place-items-center grid-cols-1 grid-rows-[1fr 1fr] bg-[var(--bg-color)] text-center"
+		class="grid place-items-center grid-cols-1 bg-[var(--bg-color)] text-center"
 	>
 		<h1
-			class="text-4xl font-semibold uppercase text-[hsla(187,45%,84%,1)]"
+			class="lg:text-[5rem] text-[2rem] text-[hsla(187,45%,84%,1)] font-bold"
 		>
 			Unique Tag Board
 		</h1>
 		<p
-			class="text-[16px] text-[hsla(187,45%,84%,1)] font-semibold w-[35ch] text-pretty text-center pb-4"
+			class="text-[clamp(0.8rem,2vw,1rem)] text-[hsla(187,45%,84%,1)] font-semibold w-[35ch] text-pretty text-center pb-4"
 		>
 			A project built with <a href="https://kit.svelte.dev"
 				>Svelte Kit</a
@@ -137,7 +137,7 @@
 		</p>
 	</header>
 	<section
-		class="smooth-scroll bg-pink-100 flex flex-col m-0 mt-0 w-[100%] "
+		class="smooth-scroll bg-pink-100 flex flex-col m-0 mt-0 w-[100%]"
 	>
 		<label for="add-tag-input" class="tag-input">
 			<div
@@ -180,10 +180,10 @@
 			</div>
 
 			<div
-				class="flex items-center box-border mt-8 h-[76px] rounded-xl   border-[3px] bg-[var(--btn-bg-color)]"
+				class="flex items-center justify-center flex-wrap box-border pt-4 mt-8 h-[132px] rounded-xl border-[3px]"
 			>
 				<input
-					class="rounded-[var(--border-radius)] border-[1px] w-[90%] ml-2 pl-2 h-[40px] bg-[var(--btn-bg-color)] text-[var(--text-color)] m-[0px] box-border"
+					class="rounded-[var(--border-radius)] border-[1px] w-[50%] ml-2 pl-2 h-[40px] text-[var(--text-color)] m-[0px] box-border"
 					id="add-tag-input"
 					type="text"
 					placeholder="Add a tag..."
@@ -206,9 +206,12 @@
 				>
 					Reset
 				</button>
+				<button
+					class="pl-2 pr-2 h-[40px] mb-8 text-[var(--text-color)] m-[5px] box-border rounded-md border-[1px]"
+					on:click={clearBoard}>Clear Board</button
+				>
 			</div>
 			<h1>number of tags on your board {tagCount}</h1>
-			<button class="pl-2 pr-2 h-[40px] text-[var(--text-color)] m-[5px] box-border rounded-md border-lime-600 border-[1px]" on:click={clearBoard}>Clear Board</button>
 		</label>
 	</section>
 </body>
