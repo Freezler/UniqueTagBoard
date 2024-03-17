@@ -139,18 +139,18 @@
 	<section
 		class="smooth-scroll flex flex-col m-0 mt-0 w-[100%]"
 	>
-		<div for="add-tag-input" class="tag-input">
+		<label for="add-tag-input" class="tag-input">
 			<div
 				use:autoAnimate={{
 					duration: 420,
 					easing: 'ease-in-out'
 				}}
-				class="overflow-scroll flex flex-row flex-wrap items-center justify-around w-[88vw] gap-2 h-[44vh] p-4 border-[4px] "
+				class="overflow-scroll flex flex-row flex-wrap items-center justify-around w-[88vw] gap-2 h-[44vh] p-4 border-[4px]"
 			>
 				{#each tags as tag, index (tag)}
 					<div
 						id="gradient"
-						class="bg-transparent grid select-none rounded-[var(--border-radius)] text-center items-center outline-none"
+						class="tag bg-transparent grid select-none rounded-[var(--border-radius)] text-center items-center outline-none"
 					>
 						<button
 							class="text-white hover:bg-gray-100 text-center font-semibold py-1 justify-between px-1 border-[1px] rounded-[var(--border-radius)] border-gray-400 shadow grid-cols-[1fr_40px] grid place-items-center text-lg pl-3"
@@ -212,7 +212,7 @@
 				>
 			</div>
 			<h3>number of tags on your board {tagCount}</h3>
-		</div>
+		</label>
 	</section>
 </body>
 
@@ -250,8 +250,8 @@
 		--input-color: rgb(78, 87, 88);
 		--bg-color: hsla(0, 0%, 0%, 1);
 		--btn-bg-color: #08075aaf;
-		--border-radius: 0.7rem;
-		--highlight-color: hsla(296, 79%, 24%, 0.99);
+		--border-radius: 30px;
+		--highlight-color: hsla(296, 70%, 57%, 0.19);
 	}
 
 	.tag-input {
@@ -271,11 +271,14 @@
 			#6650e6 50%,
 			#4e0a76 100%
 		);
-		transition: transform 0.9s ease-in-out;
+		transition: transform 0.3s ease-in-out;
 		border-image-slice: 1;
 		border-color: transparent;
 		max-width: inherit;
 		border-radius: var(--border-radius);
+	}
+	div.tag:hover {
+		transform: scale(1.05);
 	}
 
 	div::-webkit-scrollbar {
@@ -297,7 +300,7 @@
 		background: linear-gradient(
 			135deg,
 			rgba(63, 94, 251, 1) 0%,
-			rgba(252, 70, 107, 1) 100%
+			rgba(252, 70, 107, .7) 100%
 		);
 		border-radius: var(--border-radius);
 		margin: 0;
