@@ -119,7 +119,7 @@
 		class="grid place-items-center grid-cols-1 bg-[var(--bg-color)] text-center"
 	>
 		<h1
-			class="lg:text-[5rem] text-[2rem] text-[hsla(187,45%,84%,1)] font-bold"
+			class="lg:text-[4rem] text-[1.8rem] text-[hsla(187,45%,84%,1)] font-bold"
 		>
 			Unique Tag Board
 		</h1>
@@ -139,7 +139,7 @@
 	<section
 		class="smooth-scroll bg-pink-100 flex flex-col m-0 mt-0 w-[100%]"
 	>
-		<label for="add-tag-input" class="tag-input">
+		<div for="add-tag-input" class="tag-input">
 			<div
 				use:autoAnimate={{
 					duration: 420,
@@ -180,7 +180,7 @@
 			</div>
 
 			<div
-				class="flex items-center justify-center flex-wrap box-border pt-4 mt-8 h-[132px] rounded-xl border-[3px]"
+				class="flex items-center justify-center flex-wrap box-border pt-4 mb-2 mt-8 h-[148px] rounded-xl border-[3px]  w-[88vw] sm:w-[80vw] md:w-[420px] lg:w-[500px] border-[hsla(187,45%,84%,1)]"
 			>
 				<input
 					class="rounded-[var(--border-radius)] border-[1px] w-[50%] ml-2 pl-2 h-[40px] text-[var(--text-color)] m-[0px] box-border"
@@ -207,12 +207,12 @@
 					Reset
 				</button>
 				<button
-					class="pl-2 pr-2 h-[40px] mb-8 text-[var(--text-color)] m-[5px] box-border rounded-md border-[1px]"
+					class="pl-2 pr-2 h-[40px] mb-16 text-[var(--text-color)] m-[5px] box-border rounded-md border-[1px]"
 					on:click={clearBoard}>Clear Board</button
 				>
 			</div>
-			<h1>number of tags on your board {tagCount}</h1>
-		</label>
+			<h3>number of tags on your board {tagCount}</h3>
+		</div>
 	</section>
 </body>
 
@@ -304,7 +304,7 @@
 	}
 
 	a,
-	h1 {
+	h1,h3 {
 		background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-image: linear-gradient(
