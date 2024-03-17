@@ -113,13 +113,13 @@
 </script>
 
 <body
-	class="grid h-[100vh] scroll-none transition-all duration-300 select-none bg-transparent bg-[linear-gradient(145deg,rgba(1,4,5,0.99),rgba(3,7,8,0.9))] bg-repeat bg-center bg-cover"
+	class="grid h-[100vh] scroll-none transition-all duration-300 select-none bg-transparent bg-[linear-gradient(145deg,rgba(1,4,5,0.99),rgba(3,7,8,0.9))]"
 >
 	<header
 		class="grid place-items-center grid-cols-1 text-center"
 	>
 		<h1
-			class="lg:text-[4rem] text-[1.8rem] text-[hsla(187,45%,84%,1)] font-bold"
+			class="lg:text-[3.8rem] text-[1.8rem] text-[hsla(187,45%,84%,1)] font-bold"
 		>
 			Unique Tag Board
 		</h1>
@@ -142,8 +142,10 @@
 		<label for="add-tag-input" class="tag-input">
 			<div
 				use:autoAnimate={{
-					duration: 420,
-					easing: 'ease-in-out'
+					duration: 420, // animation duration in milliseconds
+					easing: 'ease-in-out', // animation easing
+					delay: 0, // animation delay in milliseconds
+					direction: 'alternate', // whether the animation should only play once
 				}}
 				class="overflow-scroll flex flex-row flex-wrap items-center justify-around w-[88vw] gap-2 h-[44vh] p-4 border-[4px]"
 			>
@@ -217,6 +219,16 @@
 </body>
 
 <style>
+	:root {
+		--text-color: hsl(165, 57%, 86%);
+		--input-color: rgb(78, 87, 88);
+		--bg-color: hsla(0, 0%, 0%, 1);
+		--btn-bg-color: #08075aaf;
+		--border-radius: 30px;
+		--highlight-color: hsla(296, 70%, 57%, 0.39);
+		margin: 0;
+		padding: 0;
+	}
 	button {
 		background-color: var(--btn-bg-color);
 		box-shadow:
@@ -237,33 +249,13 @@
 	button:hover {
 		background-color: rgba(36, 23, 219, 0.482);
 		box-shadow:
-			0 0 0px rgb(198, 196, 217),
+			0 0 0px rgb(217, 196, 215),
 			0 0 42px var(--highlight-color),
 			0 0 28px var(--highlight-color),
 			0 0 76px var(--highlight-color);
-		transition: all 0.3s ease-out;
-		scale: 1.05;
+		transition: all 0.1s ease-out;
 	}
 
-	:root {
-		--text-color: hsl(165, 57%, 86%);
-		--input-color: rgb(78, 87, 88);
-		--bg-color: hsla(0, 0%, 0%, 1);
-		--btn-bg-color: #08075aaf;
-		--border-radius: 30px;
-		--highlight-color: hsla(296, 70%, 57%, 0.19);
-	}
-
-	.tag-input {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		border-radius: var(--border-radius);
-		max-width: inherit;
-
-		transition: all 0.9s ease-in-out;
-	}
 	div {
 		border-image: linear-gradient(
 			145deg,
@@ -274,9 +266,8 @@
 		transition: transform 0.3s ease-in-out;
 		border-image-slice: 1;
 		border-color: transparent;
-		max-width: inherit;
-		border-radius: var(--border-radius);
 	}
+
 	div.tag:hover {
 		transform: scale(1.05);
 	}
@@ -295,18 +286,6 @@
 		border-radius: 50px;
 	}
 
-	#gradient {
-		background: transparent;
-		background: linear-gradient(
-			135deg,
-			rgba(63, 94, 251, 1) 0%,
-			rgba(252, 70, 107, .7) 100%
-		);
-		border-radius: var(--border-radius);
-		margin: 0;
-		padding: 2px;
-	}
-
 	a,
 	h1,
 	h3 {
@@ -323,5 +302,35 @@
 		transform: rotate(90deg);
 		transition: transform 0.3s ease-in-out;
 		outline: none;
+	}
+
+	#gradient {
+		background: transparent;
+		background: linear-gradient(
+			135deg,
+			rgba(63, 94, 251, 1) 0%,
+			rgba(252, 70, 107, 0.7) 100%
+		);
+		border-radius: var(--border-radius);
+		margin: 0;
+		padding: 2px;
+	}
+
+	#gradient:hover {
+		scale: 1.02;
+	}
+	.tag-input {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		border-radius: var(--border-radius);
+		max-width: inherit;
+
+		transition: all 0.9s ease-in-out;
+	}
+
+	svg, path {
+		transition: all 0.6s cubic-bezier(0.95, 0.05, 0.795, 0.035);
 	}
 </style>
