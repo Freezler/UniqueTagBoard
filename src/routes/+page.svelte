@@ -113,10 +113,10 @@
 </script>
 
 <body
-	class="grid h-[100vh] scroll-none transition-all duration-300 select-none"
+	class="grid h-[100vh] scroll-none transition-all duration-300 select-none bg-transparent bg-[linear-gradient(145deg,rgba(1,4,5,0.99),rgba(3,7,8,0.9))] bg-repeat bg-center bg-cover"
 >
 	<header
-		class="grid place-items-center grid-cols-1 bg-[var(--bg-color)] text-center"
+		class="grid place-items-center grid-cols-1 text-center"
 	>
 		<h1
 			class="lg:text-[4rem] text-[1.8rem] text-[hsla(187,45%,84%,1)] font-bold"
@@ -124,7 +124,7 @@
 			Unique Tag Board
 		</h1>
 		<p
-			class="text-[clamp(0.8rem,2vw,1rem)] text-[hsla(187,45%,84%,1)] font-semibold w-[35ch] text-pretty text-center pb-4"
+			class="text-[clamp(0.8rem,2vw,1rem)] text-[var(--text-color)] font-semibold w-[35ch] text-pretty text-center pb-4"
 		>
 			A project built with <a href="https://kit.svelte.dev"
 				>Svelte Kit</a
@@ -137,7 +137,7 @@
 		</p>
 	</header>
 	<section
-		class="smooth-scroll bg-pink-100 flex flex-col m-0 mt-0 w-[100%]"
+		class="smooth-scroll flex flex-col m-0 mt-0 w-[100%]"
 	>
 		<div for="add-tag-input" class="tag-input">
 			<div
@@ -145,17 +145,17 @@
 					duration: 420,
 					easing: 'ease-in-out'
 				}}
-				class="overflow-scroll flex flex-row flex-wrap items-center justify-around w-[88vw] bg-slate-950/5 gap-2 h-[44vh] p-4 border-[4px] rounded-xl"
+				class="overflow-scroll flex flex-row flex-wrap items-center justify-around w-[88vw] gap-2 h-[44vh] p-4 border-[4px] "
 			>
 				{#each tags as tag, index (tag)}
 					<div
 						id="gradient"
-						class="bg-transparent grid select-none rounded-full text-center items-center"
+						class="bg-transparent grid select-none rounded-[var(--border-radius)] text-center items-center outline-none"
 					>
 						<button
-							class="text-white hover:bg-gray-100 text-center font-semibold py-1 justify-between px-1 border-[1px] rounded-3xl border-gray-400 shadow grid-cols-[1fr_40px] grid place-items-center text-lg pl-3"
+							class="text-white hover:bg-gray-100 text-center font-semibold py-1 justify-between px-1 border-[1px] rounded-[var(--border-radius)] border-gray-400 shadow grid-cols-[1fr_40px] grid place-items-center text-lg pl-3"
 							><p
-								class="text-[hsla(187,45%,84%,1)] -translate-y-[0px]"
+								class="text-[var(--text-color)] -translate-y-[0px]"
 							>
 								{tag}
 							</p>
@@ -180,10 +180,10 @@
 			</div>
 
 			<div
-				class="flex items-center justify-center flex-wrap box-border pt-2 mb-2 mt-8 h-[138px] rounded-xl border-[3px]  w-[88vw] sm:w-[80vw] md:w-[420px] lg:w-[420px] border-[hsla(187,45%,84%,1)]"
+				class="flex items-center justify-center flex-wrap box-border pt-2 mb-2 mt-8 h-[138px] rounded-[var(--border-radius)] border-[3px] w-[88vw] sm:w-[80vw] md:w-[420px] lg:w-[420px] border-[hsla(187,45%,84%,1)] text-[var(--text-color)]"
 			>
 				<input
-					class="rounded-[var(--border-radius)] border-[1px] w-[50%] ml-2 pl-2 h-[40px] text-[var(--text-color)] m-[0px] box-border"
+					class="rounded-[var(--border-radius)] border-[1px] lowercase text-xs w-[50%] ml-2 pl-2 h-[40px] text-[var(--input-color)] m-[0px] box-border"
 					id="add-tag-input"
 					type="text"
 					placeholder="Add a tag..."
@@ -191,7 +191,7 @@
 				/>
 
 				<button
-					class="pl-2 pr-2 h-[40px] text-[var(--text-color)] m-[8px] box-border rounded-md border-lime-600 border-[1px]"
+					class="pl-2 pr-2 h-[40px] text-[var(--text-color)] m-[8px] box-border rounded-[var(--border-radius)] border-lime-700 border-[2px]"
 					type="button"
 					name="add-tag-submit"
 					aria-label="Add tag"
@@ -200,14 +200,14 @@
 					on:click={addItem}>Add</button
 				>
 				<button
-					class=" pl-2 pr-2  h-[40px]
-					bg-[var(--btn-bg-color)] text-[var(--text-color)] box-border rounded-md border-red-600 border-[1px]"
+					class=" pl-2 pr-2 h-[40px]
+					bg-[var(--btn-bg-color)] text-[var(--text-color)] box-border rounded-[var(--border-radius)] border-red-400 border-[2px]"
 					on:click={resetTags}
 				>
 					Reset
 				</button>
 				<button
-					class="pl-2 pr-2 h-[40px] mb-16 text-[var(--text-color)] m-[5px] box-border rounded-md border-[1px]"
+					class="pl-2 pr-2 h-[40px] mb-16 text-[var(--text-color)] m-[5px] box-border rounded-[var(--border-radius)] border-purple-600 border-[2px]"
 					on:click={clearBoard}>Clear Board</button
 				>
 			</div>
@@ -235,22 +235,23 @@
 	}
 
 	button:hover {
-		background-color: rgba(71, 4, 85, 0.482);
+		background-color: rgba(36, 23, 219, 0.482);
 		box-shadow:
-			0 0 0px rgb(23, 7, 205),
-			0 0 0px var(--highlight-color),
-			0 0 1px var(--highlight-color),
-			0 0 56px var(--highlight-color);
+			0 0 0px rgb(198, 196, 217),
+			0 0 42px var(--highlight-color),
+			0 0 28px var(--highlight-color),
+			0 0 76px var(--highlight-color);
 		transition: all 0.3s ease-out;
-		scale: 1.03;
+		scale: 1.05;
 	}
 
 	:root {
-		--text-color: hsl(207, 33%, 99%);
+		--text-color: hsl(165, 57%, 86%);
+		--input-color: rgb(78, 87, 88);
 		--bg-color: hsla(0, 0%, 0%, 1);
 		--btn-bg-color: #08075aaf;
-		--border-radius: 0.47rem;
-		--highlight-color: hsla(173, 55%, 94%, 0.8);
+		--border-radius: 0.7rem;
+		--highlight-color: hsla(296, 79%, 24%, 0.99);
 	}
 
 	.tag-input {
@@ -260,13 +261,12 @@
 		align-items: center;
 		border-radius: var(--border-radius);
 		max-width: inherit;
-		background-color: var(--bg-color);
-		box-shadow: 0 4rem 1rem 5rem var(--bg-color);
+
 		transition: all 0.9s ease-in-out;
 	}
 	div {
 		border-image: linear-gradient(
-			135deg,
+			145deg,
 			#f2189e 0%,
 			#6650e6 50%,
 			#4e0a76 100%
@@ -275,6 +275,7 @@
 		border-image-slice: 1;
 		border-color: transparent;
 		max-width: inherit;
+		border-radius: var(--border-radius);
 	}
 
 	div::-webkit-scrollbar {
@@ -298,13 +299,14 @@
 			rgba(63, 94, 251, 1) 0%,
 			rgba(252, 70, 107, 1) 100%
 		);
-		border-radius: 36px;
+		border-radius: var(--border-radius);
 		margin: 0;
-		padding: 1px;
+		padding: 2px;
 	}
 
 	a,
-	h1,h3 {
+	h1,
+	h3 {
 		background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-image: linear-gradient(
