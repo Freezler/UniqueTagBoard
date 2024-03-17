@@ -202,7 +202,7 @@
 					/>
 
 					<button
-						class=" text-[var(--text-color)] h-[40px] w-[82px] box-border rounded-[var(--border-radius)] border-lime-700 border-[1px] "
+						class=" text-[var(--text-color)] h-[40px] w-[80px] box-border rounded-[var(--border-radius)] border-lime-700 border-[1px] "
 						type="button"
 						name="add-tag-submit"
 						aria-label="Add tag"
@@ -213,7 +213,7 @@
 					>
 
 					<button
-						class="text-[var(--text-color)] col-start-2 col-end-2 row-start-2 h-[40px] w-[max-content] box-border rounded-[var(--border-radius)] border-fuchsia-600 border-[1px] place-self-start"
+						class="text-[var(--text-color)] col-start-2 col-end-2 row-start-2 h-[40px] w-[80px] box-border rounded-[var(--border-radius)] border-fuchsia-600 border-[1px] place-self-start"
 						on:click={resetTags}>Reset</button
 					>
 
