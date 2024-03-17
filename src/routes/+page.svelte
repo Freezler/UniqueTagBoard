@@ -38,6 +38,11 @@
 	];
 
 	let tags = defaultTags;
+	let tagCount = 0; // Initialize tagCount
+
+	const updateTagCount = () => {
+    tagCount = tags.length;
+  };
 
 	onMount(() => {
 		if (localStorage) {
@@ -51,7 +56,11 @@
 			localStorage.setItem('tags', JSON.stringify(tags));
 			return tags;
 		}
+
+		updateTagCount(); // Initial count calculation
 	});
+
+	$: updateTagCount(); // Update tagCount whenever tags change
 
 	function handleDuplicate() {
 		alert('Tag already exists');
@@ -83,20 +92,28 @@
 			input.classList.toggle('border-red-600');
 		}
 		localStorage.setItem('tags', JSON.stringify(tags));
+		tagCount = tags.length;
 	}
 
 	function remove(target) {
 		tags = tags.filter((tag) => target !== tag);
+		tagCount = tags.length;
 	}
 
 	const resetTags = () => {
 		tags = [...defaultTags];
 		localStorage.setItem('tags', JSON.stringify(tags));
+		tagCount = tags.length;
 	};
+
+	const clearBoard = () => {
+		tags = [];
+		tagCount = tags.length;
+	}
 </script>
 
 <body
-	class="grid h-[100vh] w-[100vw] scroll-none transition-all duration-300 select-none"
+	class="grid h-[100vh]  scroll-none transition-all duration-300 select-none"
 >
 	<header
 		class="grid place-items-center grid-cols-1 grid-rows-[1fr 1fr] bg-[var(--bg-color)] text-center"
@@ -120,7 +137,7 @@
 		</p>
 	</header>
 	<section
-		class="smooth-scroll bg-pink-100 flex flex-col m-0 mt-0"
+		class="smooth-scroll bg-pink-100 flex flex-col m-0 mt-0 w-[100%] "
 	>
 		<label for="add-tag-input" class="tag-input">
 			<div
@@ -163,10 +180,10 @@
 			</div>
 
 			<div
-				class="flex items-center box-border mt-8 h-[76px] rounded-xl border-[4px] -[4px] bg-[var(--btn-bg-color)]"
+				class="flex items-center box-border mt-8 h-[76px] rounded-xl   border-[3px] bg-[var(--btn-bg-color)]"
 			>
 				<input
-					class="rounded-[var(--border-radius)] border-[1px] ml-2 p-2 h-[40px] bg-[var(--btn-bg-color)] text-[var(--text-color)] m-[0px] box-border"
+					class="rounded-[var(--border-radius)] border-[1px] w-[90%] ml-2 pl-2 h-[40px] bg-[var(--btn-bg-color)] text-[var(--text-color)] m-[0px] box-border"
 					id="add-tag-input"
 					type="text"
 					placeholder="Add a tag..."
@@ -190,6 +207,8 @@
 					Reset
 				</button>
 			</div>
+			<h1>number of tags on your board {tagCount}</h1>
+			<button class="pl-2 pr-2 h-[40px] text-[var(--text-color)] m-[5px] box-border rounded-md border-lime-600 border-[1px]" on:click={clearBoard}>Clear Board</button>
 		</label>
 	</section>
 </body>
@@ -237,7 +256,7 @@
 		justify-content: center;
 		align-items: center;
 		border-radius: var(--border-radius);
-
+		max-width: inherit;
 		background-color: var(--bg-color);
 		box-shadow: 0 4rem 1rem 5rem var(--bg-color);
 		transition: all 0.9s ease-in-out;
@@ -252,6 +271,7 @@
 		transition: transform 0.9s ease-in-out;
 		border-image-slice: 1;
 		border-color: transparent;
+		max-width: inherit;
 	}
 
 	div::-webkit-scrollbar {
