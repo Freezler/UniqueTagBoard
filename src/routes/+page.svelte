@@ -180,7 +180,7 @@
 			</div>
 
 			<div
-				class="flex items-center justify-center flex-wrap box-border pt-3 mb-2 mt-8 h-[138px] rounded-xl border-[3px]  w-[88vw] sm:w-[80vw] md:w-[420px] lg:w-[420px] border-[hsla(187,45%,84%,1)]"
+				class="flex items-center justify-center flex-wrap box-border pt-2 mb-2 mt-8 h-[138px] rounded-xl border-[3px]  w-[88vw] sm:w-[80vw] md:w-[420px] lg:w-[420px] border-[hsla(187,45%,84%,1)]"
 			>
 				<input
 					class="rounded-[var(--border-radius)] border-[1px] w-[50%] ml-2 pl-2 h-[40px] text-[var(--text-color)] m-[0px] box-border"
