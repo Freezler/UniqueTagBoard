@@ -181,10 +181,10 @@
 				{/each}
 			</div>
 			<h3
-				class="font-semibold text-xs text-[hsla(187,45%,84%,1)] grid place-items-center grid-cols-[3fr_1fr] grid-rows-[24px] mt-2 mb-2"
+				class="font-semibold text-xs text-[hsla(187,45%,84%,1)] grid place-items-center justify-self-center grid-cols-[1fr_1fr] grid-rows-[32px] mt-2 mb-2"
 			>
 				number of tags on your board <span
-					class="tagCount text-2xl text-center bg-clip-text text-transparent font-bold"
+					class="tagCount text-2xl text-center bg-clip-text text-transparent z-100 font-bold" 
 				>
 					{tagCount}</span
 				>
