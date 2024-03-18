@@ -81,7 +81,7 @@
 		) {
 			if (!tags.includes(value)) {
 				tags = [...tags, value];
-				
+
 				input.value = '';
 				tags.sort((a, b) => a.localeCompare(b));
 			} else {
@@ -89,7 +89,6 @@
 				input.classList.toggle('border-red-600');
 			}
 			input.value = '';
-			
 		}
 		localStorage.setItem('tags', JSON.stringify(tags));
 		tagCount = tags.length;
@@ -101,10 +100,12 @@
 	}
 
 	const resetTags = () => {
-		tags = [...defaultTags];
-		localStorage.setItem('tags', JSON.stringify(tags));
-		tagCount = tags.length;
-	};
+    const input = document.getElementById('add-tag-input'); // Define input here or pass it as a parameter
+    tags = [...defaultTags];
+    localStorage.setItem('tags', JSON.stringify(tags));
+    tagCount = tags.length;
+    input.value = '';
+};
 
 	const clearBoard = () => {
 		tags = [];
@@ -113,18 +114,18 @@
 </script>
 
 <body
-	class="grid place-items-center grid-cols-1 grid-rows-[170px_1fr_100px] scroll-none transition-all duration-300 select-none bg-transparent   h-[100%] "
+	class="grid place-items-center grid-cols-1 grid-rows-[1fr] scroll-none transition-all duration-300 select-none bg-transparent"
 >
 	<header
-		class="grid place-items-center grid-cols-1 text-center"
+		class="grid place-items-center grid-cols-1 text-center h-[20vh] text-[hsla(187,45%,84%,1)]"
 	>
 		<h1
-			class="text-[clamp(1.6rem,2.2vw,3.8rem)] lg:mt-4 text-[hsla(187,45%,84%,1)] font-bold"
+			class="text-3xl mt-2 text-[hsla(187,45%,84%,1)] font-bold"
 		>
 			Unique Tag Board
 		</h1>
 		<p
-			class="text-[clamp(0.6em,1vw,0.8rem)] text-[var(--text-color)] pb-2 sm:pb-0 font-semibold w-[32ch] sm:w-45ch text-pretty text-center "
+			class="text-[12px] text-[var(--text-color)] mt-2   pb-2 font-semibold w-[32ch] text-pretty text-center"
 		>
 			A project built with <a href="https://kit.svelte.dev"
 				>Svelte Kit</a
@@ -132,20 +133,21 @@
 			<a href="https://tailwindcss.com">TailwindCSS </a>and
 			<a href="https://auto-animate.formkit.com/"
 				>Auto-animate.</a
-			> allowing users to dynamically add and remove tags while efficiently using available space.
+			> allowing users to dynamically add and remove tags while
+			efficiently using available space.
 		</p>
 	</header>
 	<section
-		class="grid grid-cols-[1fr] grid-rows grid-row-[1fr] box-border w-[88vw] text-[var(--text-color)] h-[100%] p-0 place-items-center place-content-center place-self-center"
+		class="grid box-border w-[88vw] text-[var(--text-color)]  p-0 place-items-center place-content-center place-self-center"
 	>
-		<label for="add-tag-input" class="tag-input gap-2">
+		<label for="add-tag-input" class="gap-2 grid">
 			<div
 				use:autoAnimate={{
 					duration: 420, // animation duration in milliseconds
 					easing: 'ease-in-out', // animation easing
 					delay: 0 // animation delay in milliseconds
 				}}
-				class="overflow-scroll flex flex-row flex-wrap items-center justify-around w-[88vw] gap-2 h-[48vh] p-4   border-[4px]"
+				class="overflow-scroll flex flex-row flex-wrap items-center justify-around w-[88vw] gap-2 h-[40vh] mt-8 p-2 border-[4px]"
 			>
 				{#each tags as tag, index (tag)}
 					<div
@@ -179,7 +181,7 @@
 				{/each}
 			</div>
 			<h3
-				class="text-xs font-semibold text-[hsla(187,45%,84%,1)] grid place-items-center grid-cols-[3fr_1fr] grid-rows-[24px]  "
+				class="font-semibold text-xs text-[hsla(187,45%,84%,1)] grid place-items-center grid-cols-[3fr_1fr] grid-rows-[24px] mt-2 mb-2"
 			>
 				number of tags on your board <span
 					class="tagCount text-2xl text-center bg-clip-text text-transparent font-bold"
@@ -188,21 +190,21 @@
 				>
 			</h3>
 			<div
-				class="grid grid-cols-[1fr] grid-rows grid-auto-rows box-border rounded-[var(--border-radius)] border-[4px] w-[88vw] border-[hsla(187,45%,84%,1)] text-[var(--text-color)] h-[100%] pb-0 m-0 "
+				class="grid grid-cols-[1fr] grid-rows grid-auto-rows box-border rounded-[var(--border-radius)] border-[4px] w-[88vw] border-[hsla(187,45%,84%,1)] text-[var(--text-color)] h-[100%] pb-0 m-0"
 			>
 				<div
-					class="gap-2 grid grid-cols-[1fr_100px] grid-rows-[1fr_1fr] sm:grid-cols-[1fr] md:grid-rows-[1fr] md:grid-row-[1fr] box-border  justify-items-start w-[auto] mx-auto p-4 "
+					class="gap-2 grid grid-cols-[1fr_100px] grid-rows-[1fr_1fr] sm:grid-cols-[1fr] md:grid-rows-[1fr] md:grid-row-[1fr] box-border justify-items-start w-[auto] mx-auto p-4"
 				>
 					<input
-						class="col-start-1 col-end-1 text-[var(--text-color)] text-sm pl-2 row-start-1 row-end-2 h-[36px] w-[90%] box-border rounded-[var(--border-radius)] justify-content-start border-purple-700 border-[2px] "
+						class="col-start-1 col-end-1 text-[var(--input-color)] bg-[var(--text-color)] text-sm pl-2 row-start-1 row-end-2 h-[36px] w-[90%] box-border rounded-[var(--border-radius)] justify-content-start border-purple-700 border-[2px]"
 						type="text"
+						id="add-tag-input"
 						placeholder="Add a tag..."
 						on:keydown={addItem}
-						
 					/>
 
 					<button
-						class=" text-[var(--text-color)] h-[40px] w-[80px] box-border rounded-[var(--border-radius)] border-lime-700 border-[1px] "
+						class=" text-[var(--text-color)] h-[40px] w-[80px] box-border rounded-[var(--border-radius)] border-lime-700 border-[1px]"
 						type="button"
 						name="add-tag-submit"
 						aria-label="Add tag"
@@ -218,7 +220,7 @@
 					>
 
 					<button
-						class="text-[var(--text-color)]col-start-2 col-end-2 row-start-2  h-[40px] box-border rounded-[var(--border-radius)] border-purple-600 border-[1px] w-[max-content]"
+						class="text-[var(--text-color)]col-start-2 col-end-2 row-start-2 h-[40px] box-border rounded-[var(--border-radius)] border-purple-600 border-[1px] w-[max-content]"
 						on:click={clearBoard}>Clear Board</button
 					>
 				</div>
@@ -239,23 +241,24 @@
 		padding: 0;
 	}
 
-	body{
+	body {
 		height: 100%;
 		width: 100%;
 		margin: 0;
 		padding: 0;
 		background-color: var(--bg-color);
-		background-image: linear-gradient(135deg, #040006 0%, #0a0620 50%, hsla(233, 100%, 2%, 0.945) 100%);
+		background-image: linear-gradient(
+			135deg,
+			#040006 0%,
+			#0a0620 50%,
+			hsla(233, 100%, 2%, 0.945) 100%
+		);
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-attachment: fixed;
 		background-position: center;
-	
-	
-		
 	}
-		
-	
+
 	button {
 		background-color: var(--btn-bg-color);
 		box-shadow:
@@ -267,16 +270,14 @@
 		padding-right: 12px;
 	}
 
-	button:active
-	{
+	button:active {
 		box-shadow:
 			inset -2px -2px 3px rgba(255, 255, 255, 0.6),
 			inset 2px 2px 3px rgba(0, 0, 0, 0.6);
 
 		outline: none;
 	}
-	button::selection:focus-visible
-	{
+	button::selection:focus-visible {
 		border: none;
 	}
 
@@ -329,7 +330,7 @@
 		background-image: linear-gradient(
 			145deg,
 			#f2189ecf,
-			#06b01797
+			#4514cdde
 		);
 	}
 
@@ -354,20 +355,10 @@
 	#gradient:hover {
 		scale: 1.02;
 	}
-	.tag-input {
-		display: grid;
-		place-items: center;
-		border-radius: var(--border-radius);
-		place-items: center;
-		
-		margin: 0;
-		padding: 0;
-	}
-	
 
 	svg,
 	path {
-		transition: all 0.6s
+		transition: all 0.4s
 			cubic-bezier(0.95, 0.05, 0.795, 0.035);
 	}
 </style>
